@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'csi.b4t.go.id',
-	'username' => 'csi',
-	'password' => 'cs1b4t',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
 	'database' => 'csi',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
