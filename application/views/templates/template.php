@@ -11,7 +11,11 @@
     <link href="<?=base_url(); ?>assets/css/themify-icons.css" rel="stylesheet" type="text/css"/>
     <link href="<?=base_url(); ?>assets/css/perfect-scrollbar.css" rel="stylesheet" type="text/css"/>
     <link href="<?=base_url(); ?>assets/css/jquery-jvectormap.css" rel="stylesheet" type="text/css"/>
-
+    <!--DataTables-->
+    <link href="<?=base_url();?>assets/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
 
     <link rel="shortcut icon" href="<?=base_url(); ?>assets/images/favico.png"/>
     <style>
@@ -159,6 +163,14 @@
                     <i class="c-pink-500 ti-palette"></i>
                   </span>
                 <span class="title">UI Elements</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class='sidebar-link' href="<?php echo base_url('Employee');?>">
+                <span class="icon-holder">
+                  <i class="c-deep-blue-500 ti-user"></i>
+                </span>
+                <span class="title">Pegawai</span>
               </a>
             </li>
 
@@ -432,6 +444,18 @@
     <script src="<?=base_url(); ?>assets/js/skycons/skycons.js"></script>
     <script src="<?=base_url(); ?>assets/js/skycons/index.js"></script>
 
+    <!--DataTables-->
+    <script src="<?=base_url(); ?>assets/js/datatable/jquery.dataTables.min.js"></script>
+    <script src="<?=base_url(); ?>assets/js/datatable/index.js"></script>
+    
+    <!--<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script scr="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>-->
 
     <script type="text/javascript">
 
