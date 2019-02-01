@@ -16,7 +16,7 @@ class Login extends MY_Controller {
 			$this->template->load_partial('templates/template', 'COA_content');
 					
 		}else{
-			redirect('Master/Login');
+			redirect('Auth/Login');
 		}
 	}
 }
