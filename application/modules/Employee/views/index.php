@@ -1,32 +1,63 @@
 <div class="container-fluid">
-  <!--<h4 class="c-grey-900 mT-10 mB-30">Data Pegawai</h4>-->
+  <h4 class="c-grey-900 mT-10 mB-30">Data Pegawai</h4>
   <div class="row">
     <div class="col-md-12">
       <div class="bgc-white bd bdrs-3 p-20 mB-20">
-        <h4 class="c-grey-900 mB-20">Bootstrap Data Table</h4>
-        <button class="btn btn-primary pull-right">Tambah Pegawai Baru</button><br><br>
+        <!--<h4 class="c-grey-900 mB-20">Data Pegawai</h4>-->
+        <?php //var_dump($employee[0]-employeeId);?>
+        <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-default">Tambah Pegawai Baru</button><br><br>
+        <?php 
+          if ($this->session->flashdata('success')) {
+              echo $this->session->flashdata('success');
+          }
+          if ($this->session->flashdata('error')) {
+              echo $this->session->flashdata('error');
+          }
+        ?>
         <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
+                <th>No</th>
+                <th>NIP</th>
+                <th>Nama</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>No Telepon</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
+                <th>No</th>
+                <th>NIP</th>
+                <th>Nama</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>No Telepon</th>
+                <th>Action</th>
               </tr>
             </tfoot>
             <tbody>
+              <?php $no = 1; foreach ($employee as $i => $a){ ?>
+                <tr>
+                  <td><?php echo $no.'.'; ?></td>
+                  <td><?php echo $a->employeeNIP; ?></td>
+                  <td><?php echo $a->employeeFirstName.' '.$a->employeeLastName; ?></td>
+                  <td><?php echo $a->employeeUsername;?></td>
+                  <td><?php echo $a->employeeEmail;?></td>
+                  <td><?php echo $a->employeePhone;?></td>
+                  <td align="center">
+                    <button type="button" class="btn cur-p btn-info btn-sm" data-toggle="modal" data-target="#modal-edit" title="Edit" onclick="edit('<?php echo $a->employeeId;?>')">
+                      <i class="c-deep-blue-500 ti-pencil-alt"></i>
+                    </button>
+                    <a href="<?php echo base_url(). 'Employee/deleteEmployee/'. $a->employeeId; ?>" onclick="return confirm('Anda yakin ingin menghapus data ini?')">
+                      <button type="button" class="btn cur-p btn-danger btn-sm" title="Hapus">
+                        <i class="c-deep-blue-500 ti-trash"></i>
+                      </button>
+                    </a>
+                  </td>
+                </tr>
+              <?php $no++; } ?>
             </tbody>
           </table>
       </div>
@@ -34,11 +65,141 @@
   </div>
 </div>
 
+<!--Modal Add Employee-->
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pegawai</h5>
+              <button type="button" class="close" data-dismiss="modal"
+                      aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <form role="form" method="POST" enctype="multipart/form-data" action="<?php echo base_url();?>Employee/addEmployee">
+            <div class="modal-body">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Nama Depan</label>
+                  <input type="text" class="form-control" id="addFirstName" name="addFirstName" required="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Nama Belakang</label>
+                  <input type="text" class="form-control" id="addLastName" name="addLastName" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Username</label>
+                  <input type="text" class="form-control" id="addUsername" name="addUsername" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Password</label>
+                  <input type="password" class="form-control" id="addPassword" name="addPassword" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">NIP</label>
+                <input type="text" class="form-control" id="addNIP" name="addNIP" required>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Email</label>
+                <input type="email" class="form-control" id="addEmail" name="addEmail" required>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Telepon</label>
+                <input type="text" class="form-control" id="addPhone" name="addPhone" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Tutup
+                </button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+          </form>
+      </div>
+  </div>
+</div>
+<!--End Modal Add Employee-->
+
+<!--Modal Edit Employee-->
+<div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Perbaharui Data Pegawai</h5>
+              <button type="button" class="close" data-dismiss="modal"
+                      aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <form role="form" method="POST" enctype="multipart/form-data" action="<?php echo base_url();?>Employee/editEmployee">
+            <div class="modal-body">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Nama Depan</label>
+                  <input type="text" class="form-control" id="editFirstName" name="editFirstName" required="">
+                  <input type="hidden" class="form-control" id="editEmployeeId" name="editEmployeeId" required="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Nama Belakang</label>
+                  <input type="text" class="form-control" id="editLastName" name="editLastName" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Username</label>
+                  <input type="text" class="form-control" id="editUsername" name="editUsername" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Password</label>
+                  <input type="password" class="form-control" id="editPassword" name="editPassword" placheholder="Enter New Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">NIP</label>
+                <input type="text" class="form-control" id="editNIP" name="editNIP" required>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Email</label>
+                <input type="email" class="form-control" id="editEmail" name="editEmail" required>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Telepon</label>
+                <input type="text" class="form-control" id="editPhone" name="editPhone" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Tutup
+                </button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+          </form>
+      </div>
+  </div>
+</div>
+<!--End Modal Edit Employee-->
+
 <script type="text/javascript">
-  $(document).ready(function() {
-    $('dataTable').DataTable({
-      buttons : ['coppy', 'excel', 'pdf'],
-      dom : 'Bflrtp'
-    })
-  });
+  function edit(id){
+    $.ajax({
+      type: 'GET', 
+      url: '<?php echo base_url(); ?>Employee/detailEmployee/'+id, 
+      dataType:'json',
+      success: function (data) {
+        document.getElementById('editEmployeeId').value = data[0].employeeId;
+        document.getElementById('editFirstName').value = data[0].employeeFirstName;
+        document.getElementById('editLastName').value = data[0].employeeLastName;
+        document.getElementById('editUsername').value = data[0].employeeUsername;
+        document.getElementById('editNIP').value = data[0].employeeNIP;
+        document.getElementById('editEmail').value = data[0].employeeEmail;
+        document.getElementById('editPhone').value = data[0].employeePhone;
+      },
+      error: function(error){
+        console.log(error)
+      }
+    });
+  }
 </script>
