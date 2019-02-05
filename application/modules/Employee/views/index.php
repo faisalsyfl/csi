@@ -1,11 +1,11 @@
 <div class="container-fluid">
-  <h4 class="c-grey-900 mT-10 mB-30">Data Pegawai</h4>
+  <h4 class="c-grey-900 mT-10 mB-30">Employee List</h4>
   <div class="row">
     <div class="col-md-12">
       <div class="bgc-white bd bdrs-3 p-20 mB-20">
         <!--<h4 class="c-grey-900 mB-20">Data Pegawai</h4>-->
         <?php //var_dump($employee[0]-employeeId);?>
-        <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-default">Tambah Pegawai Baru</button><br><br>
+        <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-default">Add New Employee</button><br><br>
         <?php 
           if ($this->session->flashdata('success')) {
               echo $this->session->flashdata('success');
@@ -19,10 +19,10 @@
               <tr>
                 <th>No</th>
                 <th>NIP</th>
-                <th>Nama</th>
+                <th>Name</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>No Telepon</th>
+                <th>Phone</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -30,10 +30,10 @@
               <tr>
                 <th>No</th>
                 <th>NIP</th>
-                <th>Nama</th>
+                <th>Name</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>No Telepon</th>
+                <th>Phone</th>
                 <th>Action</th>
               </tr>
             </tfoot>
@@ -50,7 +50,7 @@
                     <button type="button" class="btn cur-p btn-info btn-sm" data-toggle="modal" data-target="#modal-edit" title="Edit" onclick="edit('<?php echo $a->employeeId;?>')">
                       <i class="c-deep-blue-500 ti-pencil-alt"></i>
                     </button>
-                    <a href="<?php echo base_url(). 'Employee/deleteEmployee/'. $a->employeeId; ?>" onclick="return confirm('Anda yakin ingin menghapus data ini?')">
+                    <a href="<?php echo base_url(). 'Employee/deleteEmployee/'. $a->employeeId; ?>" onclick="return confirm('You are sure to delete this data?')">
                       <button type="button" class="btn cur-p btn-danger btn-sm" title="Hapus">
                         <i class="c-deep-blue-500 ti-trash"></i>
                       </button>
@@ -70,7 +70,7 @@
   <div class="modal-dialog" role="document">
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pegawai</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
               <button type="button" class="close" data-dismiss="modal"
                       aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -80,11 +80,11 @@
             <div class="modal-body">
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Nama Depan</label>
+                  <label for="inputEmail4">First Name</label>
                   <input type="text" class="form-control" id="addFirstName" name="addFirstName" required="">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPassword4">Nama Belakang</label>
+                  <label for="inputPassword4">Last Name</label>
                   <input type="text" class="form-control" id="addLastName" name="addLastName" required>
                 </div>
               </div>
@@ -107,15 +107,15 @@
                 <input type="email" class="form-control" id="addEmail" name="addEmail" required>
               </div>
               <div class="form-group">
-                <label for="inputAddress">Telepon</label>
+                <label for="inputAddress">Phone Number</label>
                 <input type="text" class="form-control" id="addPhone" name="addPhone" required>
               </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    Tutup
+                    Close
                 </button>
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
           </form>
       </div>
@@ -128,7 +128,7 @@
   <div class="modal-dialog" role="document">
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Perbaharui Data Pegawai</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Update Employee</h5>
               <button type="button" class="close" data-dismiss="modal"
                       aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -138,12 +138,12 @@
             <div class="modal-body">
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Nama Depan</label>
+                  <label for="inputEmail4">First Name</label>
                   <input type="text" class="form-control" id="editFirstName" name="editFirstName" required="">
                   <input type="hidden" class="form-control" id="editEmployeeId" name="editEmployeeId" required="">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPassword4">Nama Belakang</label>
+                  <label for="inputPassword4">Last Name</label>
                   <input type="text" class="form-control" id="editLastName" name="editLastName" required>
                 </div>
               </div>
@@ -166,15 +166,15 @@
                 <input type="email" class="form-control" id="editEmail" name="editEmail" required>
               </div>
               <div class="form-group">
-                <label for="inputAddress">Telepon</label>
+                <label for="inputAddress">Phone Number</label>
                 <input type="text" class="form-control" id="editPhone" name="editPhone" required>
               </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    Tutup
+                    Close
                 </button>
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
           </form>
       </div>

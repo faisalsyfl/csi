@@ -170,7 +170,15 @@
                 <span class="icon-holder">
                   <i class="c-deep-blue-500 ti-user"></i>
                 </span>
-                <span class="title">Pegawai</span>
+                <span class="title">Employee</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class='sidebar-link' href="<?php echo base_url('Customer');?>">
+                <span class="icon-holder">
+                  <i class="c-deep-blue-500 ti-user"></i>
+                </span>
+                <span class="title">Costumer</span>
               </a>
             </li>
 
