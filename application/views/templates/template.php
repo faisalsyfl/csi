@@ -150,7 +150,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class='sidebar-link' href="email.html">
+              <a class='sidebar-link' href="<?=base_url(); ?>Chat/Chat">
                 <span class="icon-holder">
                   <i class="c-brown-500 ti-email"></i>
                 </span>
