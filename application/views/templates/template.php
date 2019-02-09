@@ -181,6 +181,14 @@
                 <span class="title">Costumer</span>
               </a>
             </li>
+            <li class="nav-item">
+              <a class='sidebar-link' href="<?php echo base_url('Document');?>">
+                <span class="icon-holder">
+                  <i class="c-deep-blue-500 ti-file"></i>
+                </span>
+                <span class="title">Document</span>
+              </a>
+            </li>
 
           </ul>
         </div>

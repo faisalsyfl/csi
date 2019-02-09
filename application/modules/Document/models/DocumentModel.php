@@ -1,53 +1,33 @@
 <?php 
-    class CustomerModel extends CI_Model{
+    class DocumentModel extends CI_Model{
         
-        var $_table_name = 'consument';
-        var $_primary_key = 'consumentId';
+        var $_table_name = 'document';
+        var $_primary_key = 'documentId';
         protected $_primary_filter = 'intval';
-        
+        protected $_timestamps = FALSE;
         
         public $rules = array(
-            'consumentName' => array(
-                'field' => 'addName',
-                'label' => 'Name',
+            'documentFilename' => array(
+                'field' => 'addFilename',
+                'label' => 'File Name',
                 'rules' => 'trim|required'
             ),
-            'consumentAddress' => array(
-                'field' => 'addAddress',
-                'label' => 'Address',
-                'rules' => 'trim|required'
-            ),
-            'consumentEmail' => array(
-                'field' => 'addEmail',
-                'label' => 'Email',
-                'rules' => 'trim|required'
-            ),
-            'consumentPhone' => array(
-                'field' => 'addPhone',
-                'label' => 'Phone Number',
+            'documentEmployeeId' => array(
+                'field' => 'addEmployeeId',
+                'label' => 'Employee Id',
                 'rules' => 'trim|required'
             )
         );
 
         public $rulesEdit = array(
-            'consumentName' => array(
-                'field' => 'editName',
-                'label' => 'Name',
+            'documentFilename' => array(
+                'field' => 'editFilename',
+                'label' => 'File Name',
                 'rules' => 'trim|required'
             ),
-            'consumentAddress' => array(
-                'field' => 'editAddress',
-                'label' => 'Address',
-                'rules' => 'trim|required'
-            ),
-            'consumentEmail' => array(
-                'field' => 'editEmail',
-                'label' => 'Email',
-                'rules' => 'trim|required'
-            ),
-            'consumentPhone' => array(
-                'field' => 'editPhone',
-                'label' => 'Phone Number',
+            'documentEmployeeId' => array(
+                'field' => 'editEMployeeId',
+                'label' => 'Employee Id',
                 'rules' => 'trim|required'
             )
         );
@@ -56,9 +36,10 @@
             parent::__construct();
         }
 
-            public function getData(){
-            $this->db->select('document.*, employee.*');
+            public function getDataJoin(){
+            $this->db->select('*');
             $this->db->from($this->_table_name);
+            $this->db->join('employee', 'employee.employeeId = document.documentEmployeeId');
             $query = $this->db->get()->result();
             return $query;
         }
@@ -92,8 +73,9 @@
         }
 
         public function getBy($where){
-            $this->db->select('*');
-            $this->db->from('consument');
+            $this->db->select('document.*, employee.*');
+            $this->db->from('document');
+            $this->db->join('employee', 'employee.employeeId = document.documentEmployeeId');
             $this->db->where($where);
             return $this->db->get()->result();
         }
