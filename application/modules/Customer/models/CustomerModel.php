@@ -57,7 +57,7 @@
         }
 
             public function getData(){
-            $this->db->select('document.*, employee.*');
+            $this->db->select('*');
             $this->db->from($this->_table_name);
             $query = $this->db->get()->result();
             return $query;
