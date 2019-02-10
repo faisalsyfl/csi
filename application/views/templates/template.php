@@ -144,31 +144,23 @@
             <li class="nav-item">
               <a class='sidebar-link' href="email.html">
                 <span class="icon-holder">
-                  <i class="c-deep-blue-500 ti-agenda"></i>
+                  <i class="c-red-500 ti-agenda"></i>
                 </span>
-                <span class="title">Sertifikasi</span>
+                <span class="title">Certification</span>
               </a>
             </li>
             <li class="nav-item">
               <a class='sidebar-link' href="<?=base_url(); ?>Chat/Chat">
                 <span class="icon-holder">
-                  <i class="c-brown-500 ti-email"></i>
+                  <i class="c-brown-500 ti-comment-alt"></i>
                 </span>
                 <span class="title">Message</span>
-              </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="sidebar-link" href="ui.html">
-                <span class="icon-holder">
-                    <i class="c-pink-500 ti-palette"></i>
-                  </span>
-                <span class="title">UI Elements</span>
               </a>
             </li>
             <li class="nav-item">
               <a class='sidebar-link' href="<?php echo base_url('Employee');?>">
                 <span class="icon-holder">
-                  <i class="c-deep-blue-500 ti-user"></i>
+                  <i class="c-indigo-500 ti-user"></i>
                 </span>
                 <span class="title">Employee</span>
               </a>
@@ -176,7 +168,7 @@
             <li class="nav-item">
               <a class='sidebar-link' href="<?php echo base_url('Customer');?>">
                 <span class="icon-holder">
-                  <i class="c-deep-blue-500 ti-user"></i>
+                  <i class="c-pink-500 ti-user"></i>
                 </span>
                 <span class="title">Costumer</span>
               </a>
@@ -184,7 +176,7 @@
             <li class="nav-item">
               <a class='sidebar-link' href="<?php echo base_url('Document');?>">
                 <span class="icon-holder">
-                  <i class="c-deep-blue-500 ti-file"></i>
+                  <i class="c-teal-500 ti-file"></i>
                 </span>
                 <span class="title">Document</span>
               </a>
