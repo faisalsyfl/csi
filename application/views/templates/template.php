@@ -18,6 +18,7 @@
     <link href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
 
     <link rel="shortcut icon" href="<?=base_url(); ?>assets/images/favico.png"/>
+    <script src="<?=base_url(); ?>assets/js/jquery.min.js"></script>
     <style>
       #loader {
         transition: all 0.3s ease-in-out;
@@ -142,7 +143,7 @@
             </li>
            
             <li class="nav-item">
-              <a class='sidebar-link' href="email.html">
+              <a class='sidebar-link' href="<?php echo base_url('ApplicationForm');?>">
                 <span class="icon-holder">
                   <i class="c-red-500 ti-agenda"></i>
                 </span>
@@ -426,7 +427,7 @@
 
     <script src="<?=base_url(); ?>assets/js/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 
-    <script src="<?=base_url(); ?>assets/js/jquery.min.js"></script>
+    <!-- <script src="<?=base_url(); ?>assets/js/jquery.min.js"></script> -->
     <script src="<?=base_url(); ?>assets/js/bootstrap.bundle.js"></script>
     <script src="<?=base_url(); ?>assets/js/masonry.pkgd.min.js"></script>
     <script src="<?=base_url(); ?>assets/js/common.js"></script>
