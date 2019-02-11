@@ -36,7 +36,7 @@
             parent::__construct();
         }
 
-            public function getDataJoin(){
+        public function getDataJoin(){
             $this->db->select('*');
             $this->db->from($this->_table_name);
             $this->db->join('employee', 'employee.employeeId = document.documentEmployeeId');

@@ -10,6 +10,7 @@ class Document extends MY_Controller {
 
 	public function index(){
 		$data['document'] = $this->DocumentModel->getDataJoin();
+		// print_r($data['document']);
 		$this->template->set('controller', $this);
 		$this->template->load_partial('templates/template', 'index', $data);
 
