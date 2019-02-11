@@ -134,7 +134,7 @@
           <!-- ### $Sidebar Menu ### -->
           <ul class="sidebar-menu scrollable pos-r">
             <li class="nav-item mT-20 active">
-              <a class="sidebar-link active" href="index.html">
+              <a class="sidebar-link active" href="<?php echo base_url('Dashboard');?>">
                 <span class="icon-holder">
                   <i class="c-blue-500 ti-home"></i>
                 </span>
