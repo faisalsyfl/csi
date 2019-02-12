@@ -1,8 +1,8 @@
 <?php 
-    class EmployeeModel extends CI_Model{
+    class StatusModel extends CI_Model{
         
-        var $_table_name = 'employee';
-        var $_primary_key = 'employeeId';
+        var $_table_name = 'status';
+        var $_primary_key = 'statusId';
         protected $_primary_filter = 'intval';
         
         public $rules = array(
@@ -60,11 +60,11 @@
 
         //create and update data function
         public function save($data, $id = NULL){
-            if ($this->_timestamps == TRUE) {
-                $now = date('Y-m-d H:i:s');
-                $id || $data['created'] = $now;
-                $date['modified'] = $now;
-            }
+            // if ($this->_timestamps == TRUE) {
+            //     $now = date('Y-m-d H:i:s');
+            //     $id || $data['created'] = $now;
+            //     $date['modified'] = $now;
+            // }
 
             // Create (insert)
             if ($id === NULL) {

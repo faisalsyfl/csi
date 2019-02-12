@@ -2,7 +2,9 @@
     class DashboardModel extends CI_Model{
         
         var $_table_name = 'form';
+        var $_table2_name = 'status';
         var $_primary_key = 'id_form';
+        var $_primary2_key = 'statusId';
         protected $_primary_filter = 'intval';
         
         public $rules = array(
@@ -55,9 +57,25 @@
             parent::__construct();
         }
 
+        public function getDataJoin(){
+            $this->db->select('*');
+            $this->db->from($this->_table_name);
+            $this->db->join('status', 'form.id_form = status.formId');
+            $query = $this->db->get()->result();
+            return $query;
+        }
+
         public function getDataSertifikasi(){
             $this->db->select('*');
             $this->db->from($this->_table_name);
+            
+            $query = $this->db->get()->result();
+            return $query;
+        }
+
+        public function getDatastatus(){
+            $this->db->select('*');
+            $this->db->from($this->_table2_name);
             
             $query = $this->db->get()->result();
             return $query;

@@ -50,9 +50,21 @@ class ApplicationForm extends MY_Controller {
 				'info_tambahan8'					=> $this->input->post('input_info_tambahan8')
 			);
 			
-			$addCustomer = $this->ApplicationFormModel->save($CustomerData);
+			$formId = $this->ApplicationFormModel->save($CustomerData);
+			$StatusData = array(
+				'formId'				=> $formId,
+				'aplikasiSertifikasi'	=> "0,0",
+				'kajianAplikasi'		=> "0",
+				'penawaran'				=> "0,0,0,0",
+				'auditTahap1'			=> "0,0,0,0,0,0,0",
+				'auditTahap2'			=> "0,0,0,0,0,0,0,0,0,0",
+				'evaluasi'				=> "0,0",
+				'sertifikat'			=> "0,0,0,0,0",
+			);
 
-			if (count($addCustomer)) {
+			$statusId = $this->ApplicationFormModel->saveStatus($StatusData, $formId);
+
+			if (count($statusId)) {
 				$this->session->set_flashdata('success', '<div class="alert alert-success" role="alert">Data is successfully added.</div>');
 				redirect('Dashboard');
 			}else{

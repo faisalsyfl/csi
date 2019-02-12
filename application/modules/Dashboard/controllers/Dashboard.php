@@ -9,7 +9,7 @@ class Dashboard extends MY_Controller {
 	}
 
 	public function index(){
-		$data['sertifikasi'] = $this->DashboardModel->getDataSertifikasi();
+		$data['sertifikasi'] = $this->DashboardModel->getDataJoin();
 		$this->template->set('controller', $this);
 		$this->template->load_partial('templates/template', 'index', $data);
 	}
