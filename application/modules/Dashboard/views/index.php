@@ -37,57 +37,57 @@
         <div class="row mT-10">
           <div class="col">
             <small class="fw-600 c-grey-700">Aplikasi Sertifikasi</small>
-          <span class="pull-right c-grey-600 fsz-sm"><?php $number = explode(",",$a->aplikasiSertifikasi); echo array_sum($number)/count($number)*100 ?>%</span>
+          <span class="pull-right c-grey-600 fsz-sm"><?php $number = explode(",",$a->aplikasiSertifikasi); echo round(array_sum($number)/count($number)*100) ?>%</span>
           <div class="progress mT-10">
-            <div class="progress-bar bgc-green-00" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php $number = explode(",",$a->aplikasiSertifikasi); echo array_sum($number)/count($number)*100 ?>%;"> <span class="sr-only">0% Complete</span></div>
+            <div class="progress-bar bgc-green-00" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php $number = explode(",",$a->aplikasiSertifikasi); echo round(round(array_sum($number)/count($number)*100)) ?>%;"> <span class="sr-only">0% Complete</span></div>
           </div>
           </div>
 
           <div class="col">
             <small class="fw-600 c-grey-700">Kajian Aplikasi</small>
-          <span class="pull-right c-grey-600 fsz-sm"><?php $number = explode(",",$a->kajianAplikasi); echo array_sum($number)/count($number)*100 ?>%</span>
+          <span class="pull-right c-grey-600 fsz-sm"><?php $number = explode(",",$a->kajianAplikasi); echo round(array_sum($number)/count($number)*100) ?>%</span>
           <div class="progress mT-10">
-            <div class="progress-bar bgc-green-00" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php $number = explode(",",$a->kajianAplikasi); echo array_sum($number)/count($number)*100 ?>%;"> <span class="sr-only">0% Complete</span></div>
+            <div class="progress-bar bgc-green-00" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php $number = explode(",",$a->kajianAplikasi); echo round(array_sum($number)/count($number)*100) ?>%;"> <span class="sr-only">0% Complete</span></div>
           </div>
           </div>
 
           <div class="col">
             <small class="fw-600 c-grey-700">Penawaran</small>
-          <span class="pull-right c-grey-600 fsz-sm"><?php $number = explode(",",$a->penawaran); echo array_sum($number)/count($number)*100 ?>%</span>
+          <span class="pull-right c-grey-600 fsz-sm"><?php $number = explode(",",$a->penawaran); echo round(array_sum($number)/count($number)*100) ?>%</span>
           <div class="progress mT-10">
-            <div class="progress-bar bgc-green-00" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php $number = explode(",",$a->penawaran); echo array_sum($number)/count($number)*100 ?>%;"> <span class="sr-only">0% Complete</span></div>
+            <div class="progress-bar bgc-green-00" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php $number = explode(",",$a->penawaran); echo round(array_sum($number)/count($number)*100) ?>%;"> <span class="sr-only">0% Complete</span></div>
           </div>
           </div>
 
           <div class="col">
             <small class="fw-600 c-grey-700">Audit Tahap 1</small>
-            <span class="pull-right c-grey-600 fsz-sm"><?php $number = explode(",",$a->auditTahap1); echo array_sum($number)/count($number)*100 ?>%</span>
+            <span class="pull-right c-grey-600 fsz-sm"><?php $number = explode(",",$a->auditTahap1); echo round(array_sum($number)/count($number)*100) ?>%</span>
             <div class="progress mT-10">
-              <div class="progress-bar bgc-green-00" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php $number = explode(",",$a->auditTahap1); echo array_sum($number)/count($number)*100 ?>%;"><span class="sr-only">0% Complete</span></div>
+              <div class="progress-bar bgc-green-00" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php $number = explode(",",$a->auditTahap1); echo round(array_sum($number)/count($number)*100) ?>%;"><span class="sr-only">0% Complete</span></div>
             </div>
           </div>
 
           <div class="col">
             <small class="fw-600 c-grey-700">Audit Tahap 2</small>
-            <span class="pull-right c-grey-600 fsz-sm"><?php $number = explode(",",$a->auditTahap2); echo array_sum($number)/count($number)*100 ?>%</span>
+            <span class="pull-right c-grey-600 fsz-sm"><?php $number = explode(",",$a->auditTahap2); echo round(array_sum($number)/count($number)*100) ?>%</span>
             <div class="progress mT-10">
-              <div class="progress-bar bgc-green-00" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php $number = explode(",",$a->auditTahap2); echo array_sum($number)/count($number)*100 ?>%;"><span class="sr-only">0% Complete</span></div>
+              <div class="progress-bar bgc-green-00" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php $number = explode(",",$a->auditTahap2); echo round(array_sum($number)/count($number)*100) ?>%;"><span class="sr-only">0% Complete</span></div>
             </div>
           </div>
 
           <div class="col">
             <small class="fw-600 c-grey-700">Evaluasi</small>
-            <span class="pull-right c-grey-600 fsz-sm"><?php $number = explode(",",$a->evaluasi); echo array_sum($number)/count($number)*100 ?>%</span>
+            <span class="pull-right c-grey-600 fsz-sm"><?php $number = explode(",",$a->evaluasi); echo round(array_sum($number)/count($number)*100) ?>%</span>
             <div class="progress mT-10">
-              <div class="progress-bar bgc-green-00" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php $number = explode(",",$a->evaluasi); echo array_sum($number)/count($number)*100 ?>%;"><span class="sr-only">0% Complete</span></div>
+              <div class="progress-bar bgc-green-00" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php $number = explode(",",$a->evaluasi); echo round(array_sum($number)/count($number)*100) ?>%;"><span class="sr-only">0% Complete</span></div>
             </div>
           </div>
 
           <div class="col">
             <small class="fw-600 c-grey-700">Sertifikat</small>
-            <span class="pull-right c-grey-600 fsz-sm"><?php $number = explode(",",$a->sertifikat); echo array_sum($number)/count($number)*100 ?>%</span>
+            <span class="pull-right c-grey-600 fsz-sm"><?php $number = explode(",",$a->sertifikat); echo round(array_sum($number)/count($number)*100) ?>%</span>
             <div class="progress mT-10">
-              <div class="progress-bar bgc-green-00" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php $number = explode(",",$a->sertifikat); echo array_sum($number)/count($number)*100 ?>%;"> <span class="sr-only">0% Complete</span></div>
+              <div class="progress-bar bgc-green-00" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<?php $number = explode(",",$a->sertifikat); echo round(array_sum($number)/count($number)*100) ?>%;"> <span class="sr-only">0% Complete</span></div>
             </div>
           </div>
 
