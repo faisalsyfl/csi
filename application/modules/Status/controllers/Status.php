@@ -6,10 +6,13 @@ class Status extends MY_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('StatusModel');
+		$this->load->model('ApplicationForm/ApplicationFormModel');
 	}
 
-	public function index(){
-		$data['status'] = $this->StatusModel->getData();
+	public function index($id=NULL){
+		$data['form'] = $this->ApplicationFormModel->selectById($id)->row_array();
+		// print_r($data['form']);
+		// $data['status'] = $this->StatusModel->getData();
 		$this->template->set('controller', $this);
 		$this->template->load_partial('templates/template', 'index', $data);
 
@@ -46,5 +49,29 @@ class Status extends MY_Controller {
 
 		return($array);
 	}
-	
+
+	public function statusSave(){
+
+
+		//Upload file bagan alir
+		$config['upload_path']          = './uploads/aplikasi';
+		$config['allowed_types']	= '*';
+		$config['max_size']			= 0;				
+		date_default_timezone_set("Asia/Bangkok");
+		$config['file_name']		= "test_".time();
+		$this->load->library('upload', $config);
+		if(!$this->upload->do_upload('docsx1')){
+			/*Jika Gagal Upload*/
+			echo "gagal";
+			echo $this->upload->display_errors();
+		} else{
+			echo "sukses";
+
+		}			
+		
+		// $this->ModelRMP->update($idr,$post);
+		// redirect('RMP/tiga/'.$id);
+
+
+	}	
 }

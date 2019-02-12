@@ -126,6 +126,12 @@
             $this->db->where($where);
             return $this->db->get()->result();
         }
+        public function selectById($id){
+            $this->db->select('*');
+            $this->db->from('form');
+            $this->db->where('id_form',$id);
+            return $this->db->get();
+        }        
 
         public function delete($id){
             $filter = $this->_primary_filter;

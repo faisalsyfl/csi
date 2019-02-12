@@ -77,5 +77,15 @@ class ApplicationForm extends MY_Controller {
 		// 	redirect('Customer');
 		// }
 	}
+	public function list(){
+		$data['form'] = $this->ApplicationFormModel->getData();
+		$this->template->set('controller', $this);
+		$this->template->load_partial('templates/template', 'all', $data);		
+	}
+
+	public function statusSave(){
+		$post = $this->input->post();
+		print_r($post);
+	}
 	
 }

@@ -141,15 +141,33 @@
                 <span class="title">Dashboard</span>
               </a>
             </li>
-           
-            <li class="nav-item">
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle" href="javascript:void(0);">
+                <span class="icon-holder">
+                  <i class="c-red-500 ti-agenda"></i>
+                </span>
+                <span class="title">Certification</span>
+                <span class="arrow">
+                  <i class="ti-angle-right"></i>
+                </span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class='sidebar-link' href="<?=base_url(); ?>ApplicationForm">Formulir Sertifikasi</a>
+                </li>
+                <li>
+                  <a class='sidebar-link' href="<?=base_url(); ?>ApplicationForm/list">Daftar Sertifikasi</a>
+                </li>
+              </ul>
+            </li>           
+<!--             <li class="nav-item">
               <a class='sidebar-link' href="<?php echo base_url('ApplicationForm');?>">
                 <span class="icon-holder">
                   <i class="c-red-500 ti-agenda"></i>
                 </span>
                 <span class="title">Certification</span>
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class='sidebar-link' href="<?=base_url(); ?>Chat/Chat">
                 <span class="icon-holder">
@@ -182,7 +200,14 @@
                 <span class="title">Document</span>
               </a>
             </li>
-
+            <li class="nav-item">
+              <a class='sidebar-link' href="<?php echo base_url('Status');?>">
+                <span class="icon-holder">
+                  <i class="c-teal-500 ti-file"></i>
+                </span>
+                <span class="title">Status</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
