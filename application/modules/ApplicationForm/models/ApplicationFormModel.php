@@ -2,9 +2,7 @@
     class ApplicationFormModel extends CI_Model{
         
         var $_table_name = 'form';
-        var $_table2_name = 'status';
         var $_primary_key = 'id_form';
-        var $_primary2_key = 'statusId';
         protected $_primary_filter = 'intval';
         
         public $rules = array(
@@ -67,12 +65,6 @@
 
         //create and update data function
         public function save($data, $id = NULL){
-            // if ($this->_timestamps == TRUE) {
-            //     $now = date('Y-m-d H:i:s');
-            //     $id || $data['created'] = $now;
-            //     $date['modified'] = $now;
-            // }
-
             // Create (insert)
             if ($id === NULL) {
                 !isset($data[$this->id]) || $data[$this->_primary_key] = NULL;
@@ -80,55 +72,26 @@
                 $this->db->insert($this->_table_name);
                 $id = $this->db->insert_id();
             }
-
-            // // Edit (update)
-            // else {
-            //     $filter = $this->_primary_filter;
-            //     $id = $filter($id);
-            //     $this->db->set($data);
-            //     $this->db->where($this->_primary_key, $id);
-            //     $this->db->update($this->_table_name);
-            // }
-
-            return $id;
-        }
-
-        //create and update data function
-        public function saveStatus($data, $id){
-            // if ($this->_timestamps == TRUE) {
-            //     $now = date('Y-m-d H:i:s');
-            //     $id || $data['created'] = $now;
-            //     $date['modified'] = $now;
-            // }
-
-            // Create (insert)
-            // if ($id === NULL) {
+            // Edit (update)
+            else {
+                $filter = $this->_primary_filter;
+                $id = $filter($id);
                 $this->db->set($data);
-                $this->db->insert($this->_table2_name);
-                $id = $this->db->insert_id();
-            // }
-
-            // // Edit (update)
-            // else {
-            //     $filter = $this->_primary_filter;
-            //     $id = $filter($id);
-            //     $this->db->set($data);
-            //     $this->db->where($this->_primary_key, $id);
-            //     $this->db->update($this->_table_name);
-            // }
-
+                $this->db->where($this->_primary_key, $id);
+                $this->db->update($this->_table_name);
+            }
             return $id;
         }
 
         public function getBy($where){
             $this->db->select('*');
-            $this->db->from('consument');
+            $this->db->from($this->_table_name);
             $this->db->where($where);
             return $this->db->get()->result();
         }
         public function selectById($id){
             $this->db->select('*');
-            $this->db->from('form');
+            $this->db->from($this->_table_name);
             $this->db->where('id_form',$id);
             return $this->db->get();
         }        

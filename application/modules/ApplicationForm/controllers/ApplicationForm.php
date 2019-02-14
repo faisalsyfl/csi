@@ -6,6 +6,7 @@ class ApplicationForm extends MY_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('ApplicationFormModel');
+		$this->load->model('Status/StatusModel');
 	}
 
 	public function index(){
@@ -52,25 +53,27 @@ class ApplicationForm extends MY_Controller {
 			
 			$formId = $this->ApplicationFormModel->save($CustomerData);
 			$StatusData = array(
-				'formId'				=> $formId,
-				'aplikasiSertifikasi'	=> "0,0",
-				'kajianAplikasi'		=> "0",
-				'penawaran'				=> "0,0,0,0",
-				'auditTahap1'			=> "0,0,0,0,0,0,0",
-				'auditTahap2'			=> "0,0,0,0,0,0,0,0,0,0",
-				'evaluasi'				=> "0,0",
-				'sertifikat'			=> "0,0,0,0,0",
+				1	=> "0,0",
+				2	=> "0",
+				3	=> "0,0,0,0",
+				4	=> "0,0,0,0,0,0,0",
+				5	=> "0,0,0,0,0,0,0,0,0,0",
+				6	=> "0,0",
+				7	=> "0,0,0,0,0",
 			);
+			$status = array(
+				'status'	=>	json_encode($StatusData),
+			);
+			$lastId = $this->ApplicationFormModel->save($status,$formId);
+			// $statusId = $this->StatusModel->save($StatusData);
 
-			$statusId = $this->ApplicationFormModel->saveStatus($StatusData, $formId);
-
-			if (count($statusId)) {
-				$this->session->set_flashdata('success', '<div class="alert alert-success" role="alert">Data is successfully added.</div>');
-				redirect('Dashboard');
-			}else{
-				$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert">Please make sure you fill in all the fields.</div>');
-				redirect('Dashboard');
-			}
+			// if (count($statusId)) {
+			// 	$this->session->set_flashdata('success', '<div class="alert alert-success" role="alert">Data is successfully added.</div>');
+			// 	redirect('Dashboard');
+			// }else{
+			// 	$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert">Please make sure you fill in all the fields.</div>');
+			// 	redirect('Dashboard');
+			// }
 
 		// }else{
 		// 	$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert">'.validation_errors().'</div>');
@@ -81,11 +84,6 @@ class ApplicationForm extends MY_Controller {
 		$data['form'] = $this->ApplicationFormModel->getData();
 		$this->template->set('controller', $this);
 		$this->template->load_partial('templates/template', 'all', $data);		
-	}
-
-	public function statusSave(){
-		$post = $this->input->post();
-		print_r($post);
 	}
 	
 }

@@ -24,7 +24,7 @@ class Status extends MY_Controller {
 		$inputAplikasiSertifikasi1 = $this->input->post('inputAplikasiSertifikasi1');
 		$inputAplikasiSertifikasi2 = $this->input->post('inputAplikasiSertifikasi2');
 
-		$inputAplikasiSertifikasi = $inputAplikasiSertifikasi1."0,0".$inputAplikasiSertifikasi2;
+		$inputAplikasiSertifikasi = $inputAplikasiSertifika si1."0,0".$inputAplikasiSertifikasi2;
 		$statusData = array(
 			'aplikasiSertifikasi'	=> $inputAplikasiSertifikasi
 		// 	'kajianAplikasi'	=> implode(",",$this->input->post('inputKajianAplikasi')),

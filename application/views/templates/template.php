@@ -134,7 +134,7 @@
           <!-- ### $Sidebar Menu ### -->
           <ul class="sidebar-menu scrollable pos-r">
             <li class="nav-item mT-20 active">
-              <a class="sidebar-link active" href="<?php echo base_url('Dashboard');?>">
+              <a class="sidebar-link <?php if($this->uri->segment(1) == "Dashboard") echo "active"; ?>" href="<?php echo base_url('Dashboard');?>">
                 <span class="icon-holder">
                   <i class="c-blue-500 ti-home"></i>
                 </span>
@@ -142,7 +142,7 @@
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a class="dropdown-toggle" href="javascript:void(0);">
+              <a class="dropdown-toggle <?php if($this->uri->segment(1) == "ApplicationForm") echo "active"; ?>" href="javascript:void(0);">
                 <span class="icon-holder">
                   <i class="c-red-500 ti-agenda"></i>
                 </span>
@@ -168,16 +168,24 @@
                 <span class="title">Certification</span>
               </a>
             </li> -->
-            <li class="nav-item">
+<!--             <li class="nav-item">
               <a class='sidebar-link' href="<?=base_url(); ?>Chat/Chat">
                 <span class="icon-holder">
                   <i class="c-brown-500 ti-comment-alt"></i>
                 </span>
                 <span class="title">Message</span>
               </a>
+            </li> -->
+            <li class="nav-item">
+              <a class='sidebar-link <?php if($this->uri->segment(1) == "Organisasi") echo "active"; ?>' href="<?php echo base_url('Organisasi');?>">
+                <span class="icon-holder">
+                  <i class="c-yellow-500 fa fa-sitemap"></i>
+                </span>
+                <span class="title">Organisasi</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class='sidebar-link' href="<?php echo base_url('Employee');?>">
+              <a class='sidebar-link <?php if($this->uri->segment(1) == "Employee") echo "active"; ?>' href="<?php echo base_url('Employee');?>">
                 <span class="icon-holder">
                   <i class="c-indigo-500 ti-user"></i>
                 </span>
@@ -185,7 +193,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class='sidebar-link' href="<?php echo base_url('Customer');?>">
+              <a class='sidebar-link <?php if($this->uri->segment(1) == "Customer") echo "active"; ?>' href="<?php echo base_url('Customer');?>">
                 <span class="icon-holder">
                   <i class="c-pink-500 ti-user"></i>
                 </span>
@@ -193,21 +201,21 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class='sidebar-link' href="<?php echo base_url('Document');?>">
+              <a class='sidebar-link <?php if($this->uri->segment(1) == "Document") echo "active"; ?>' href="<?php echo base_url('Document');?>">
                 <span class="icon-holder">
                   <i class="c-teal-500 ti-file"></i>
                 </span>
                 <span class="title">Document</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class='sidebar-link' href="<?php echo base_url('Status');?>">
+<!--             <li class="nav-item">
+              <a class='sidebar-link <?php if($this->uri->segment(1) == "Status") echo "active"; ?>' href="<?php echo base_url('Status');?>">
                 <span class="icon-holder">
                   <i class="c-teal-500 ti-file"></i>
                 </span>
                 <span class="title">Status</span>
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -445,7 +453,7 @@
         </main>
         <!-- ### $App Screen Footer ### -->
         <footer class="bdT ta-c pT-10 pB-10 pL-40 pR-40 fsz-sm c-grey-600">
-          <p class="pb-0 mb-0 lh-3/2">Copyright © 2017 Designed by <a href="https://colorlib.com" target='_blank' title="Colorlib">Colorlib</a>. All rights reserved.</p>
+          <p class="pb-0 mb-0 lh-3/2">Copyright B4T © 2019. All rights reserved.</p>
         </footer>
       </div>
     </div>

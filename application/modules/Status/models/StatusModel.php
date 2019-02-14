@@ -88,7 +88,7 @@
 
         public function getBy($where){
             $this->db->select('*');
-            $this->db->from('employee');
+            $this->db->from($this->_table_name);
             $this->db->where($where);
             return $this->db->get()->result();
         }
