@@ -21,9 +21,10 @@ class Organization extends MY_Controller {
 		$this->form_validation->set_rules($rules);
 		if ($this->form_validation->run() == TRUE) {
 			$organizationData = array(
-				'organizationName'		=> $this->input->post('addName'),
-				'organizationPhone'		=> $this->input->post('addPhone'),
+				'organizationName'			=> $this->input->post('addName'),
+				'organizationPhone'			=> $this->input->post('addPhone'),
 				'organizationWebsite'		=> $this->input->post('addWebsite'),
+				'organizationType'			=> $this->input->post('addType'),
 				'organizationCreatedAt'		=> date('Y-m-d H:i:s'),
 				'organizationUpdateAt'		=> date('Y-m-d H:i:s')
 			);
@@ -56,6 +57,7 @@ class Organization extends MY_Controller {
 				'organizationName'			=> $this->input->post('editName'),
 				'organizationPhone'			=> $this->input->post('editPhone'),
 				'organizationWebsite'		=> $this->input->post('editWebsite'),
+				'organizationType'			=> $this->input->post('editType'),
 				'organizationUpdateAt'		=> date('Y-m-d H:i:s')
 			);
 		

@@ -7,9 +7,11 @@ class ApplicationForm extends MY_Controller {
 		parent::__construct();
 		$this->load->model('ApplicationFormModel');
 		$this->load->model('Status/StatusModel');
+		$this->load->model('Organization/OrganizationModel');
 	}
 
 	public function index(){
+		$data['organization'] = $this->OrganizationModel->getData();
 		$data['form'] = $this->ApplicationFormModel->getData();
 		$this->template->set('controller', $this);
 		$this->template->load_partial('templates/template', 'index', $data);
@@ -17,6 +19,29 @@ class ApplicationForm extends MY_Controller {
 
 	//add data Customer
 	public function addForm(){
+		   //upload foto
+        // $config['upload_path']          = './uploads/formDocs';
+        // $config['allowed_types']        = '*';
+        // $config['max_size']             = 2048;
+        // $config['overwrite']            = true;
+        // $this->load->library('upload', $config);
+        // $filename = '';
+        // if ( ! $this->upload->do_upload('addFileupload')){
+        //     $error = array('error' => $this->upload->display_errors());
+        //     $this->session->set_flashdata('error', $error['error']);
+        // }else{
+        //     $data['gambar'] = array('upload_data' => $this->upload->data());
+        //     $filename = $data['gambar']['upload_data']['file_name'];
+        // }
+        // $document = array(
+        //     'documentEmployeeId' => 1, //replace to $idEmployee, if you want to match the user who is logged in
+
+        //     'documentFileUpload'    => $filename,
+        //     'documentFilename'  => $this->input->post('addFilename'),
+        //     'created_at'        => date('Y-m-d H:i:s'),
+        //     'updated_at'        => date('Y-m-d H:i:s')
+        // ); 
+		
 		// $rules = $this->ApplicationFormModel->rules;
 		// $this->form_validation->set_rules($rules);
 		// if ($this->form_validation->run() == TRUE) {

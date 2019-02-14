@@ -19,7 +19,8 @@
                 <th>No</th>
                 <th>Name</th>
                 <th>No Telepon</th>
-                <th>Website</th>    
+                <th>Website</th>
+                <th>Jenis Organisasi</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -29,6 +30,7 @@
                 <th>Name</th>
                 <th>No Telepon</th>
                 <th>Website</th>
+                <th>Jenis Organisasi</th>
                 <th>Action</th>
               </tr>
             </tfoot>
@@ -39,6 +41,7 @@
                   <td><?php echo $a->organizationName; ?></td>
                   <td><?php echo $a->organizationPhone;?></td>
                   <td><?php echo $a->organizationWebsite;?></td>
+                  <td><?php echo $a->organizationType;?></td>
                   <td align="center">
                     <button type="button" class="btn cur-p btn-info btn-sm" data-toggle="modal" data-target="#modal-edit" title="Edit" onclick="edit('<?php echo $a->organizationId;?>')">
                       <i class="c-deep-blue-500 ti-pencil-alt"></i>
@@ -83,6 +86,10 @@
                 <label for="inputAddress">Website</label>
                 <input type="text" class="form-control" id="addWebsite" name="addWebsite" required>
               </div>
+              <div class="form-group">
+                <label for="inputAddress">Jenis Organisasi</label>
+                <input type="text" class="form-control" id="addWebsite" name="addType" required>
+              </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -122,6 +129,10 @@
                 <label for="inputAddress">Website</label>
                 <input type="text" class="form-control" id="editWebsite" name="editWebsite" required>
               </div>
+              <div class="form-group">
+                <label for="inputAddress">Jenis Organisasi</label>
+                <input type="text" class="form-control" id="editType" name="editType" required>
+              </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -148,6 +159,7 @@
         document.getElementById('editName').value = data[0].organizationName;
         document.getElementById('editPhone').value = data[0].organizationPhone;
         document.getElementById('editWebsite').value = data[0].organizationWebsite;
+        document.getElementById('editType').value = data[0].organizationType;
       },
       error: function(error){
         console.log(error)

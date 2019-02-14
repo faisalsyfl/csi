@@ -1,7 +1,7 @@
 <!-- ### $App Screen Content ### -->
 <h3 class="c-grey-900 offset-md-1">Formulir Aplikasi Sertifikasi</h3>
 <h6 class="mT-10 mB-30 offset-md-1">Silahkan isi dengan jelas informasi di bawah ini :</h6>
-<!-- <?php print_r($form) ?> -->
+<!-- <?php print_r($organization) ?> -->
 <form method="POST" action="<?php echo base_url();?>ApplicationForm/addForm">
    <div class="row gap-20 masonry pos-r">
       
@@ -78,7 +78,14 @@
                   <label for="exampleInputEmail1" style="font-size: 16px">Nama Organisasi</label>
                   <select class="form-control mT-10" id="example1" name="input_nama_organisasi" required="required">
                      <option value="" selected disabled>-- Pilih Organisasi --</option>                     
-                     <option>PT. Bio Farma (Persero)</option>
+                     <?php foreach ($organization as $i => $a){ ?>
+                      <option
+                        data-info4="<?php echo $a->organizationPhone; ?>"
+                        data-info5="<?php echo $a->organizationWebsite; ?>"
+                        data-info6="<?php echo $a->organizationType; ?>">
+                        <?php echo $a->organizationName; ?>
+                      </option>
+                      <?php } ?>
                   </select>
                </div>
 
@@ -468,9 +475,9 @@ $(document).ready(function() {
 });
 
 $("#example1").change(function() {
-    $("#info4").val("+62222033755");
-    $("#info5").val("http://www.biofarma.co.id/");
-    $("#info6").val("BUMN");
+    $("#info4").val($(this).find('option:selected').data('info4'));
+    $("#info5").val($(this).find('option:selected').data('info5'));
+    $("#info6").val($(this).find('option:selected').data('info6'));
 }); // trigger once if needed
 
 </script>
