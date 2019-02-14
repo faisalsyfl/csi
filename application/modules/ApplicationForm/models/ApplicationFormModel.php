@@ -67,10 +67,10 @@
         public function save($data, $id = NULL){
             // Create (insert)
             if ($id === NULL) {
-                !isset($data[$this->id]) || $data[$this->_primary_key] = NULL;
                 $this->db->set($data);
                 $this->db->insert($this->_table_name);
                 $id = $this->db->insert_id();
+                echo $id;
             }
             // Edit (update)
             else {
@@ -89,6 +89,7 @@
             $this->db->where($where);
             return $this->db->get()->result();
         }
+        
         public function selectById($id){
             $this->db->select('*');
             $this->db->from($this->_table_name);

@@ -1,7 +1,10 @@
 <!-- ### $App Screen Content ### -->
 <h3 class="c-grey-900 offset-md-1">Formulir Aplikasi Sertifikasi</h3>
 <h6 class="mT-10 mB-30 offset-md-1">Silahkan isi dengan jelas informasi di bawah ini :</h6>
-<!-- <?php print_r($organization) ?> -->
+<?php echo '<pre>' ?>
+<?php print_r($form) ?>
+<?php echo '</pre>' ?>
+
 <?php echo form_open_multipart("ApplicationForm/addForm") ?>
    <div class="row gap-20 masonry pos-r">
       
@@ -14,20 +17,8 @@
                <div class="form-group">
                   <div class="form-check">
                      <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="input_sertifikasi_manajemen" id="" value="Manajemen mutu ISO 9001" required>
-                        Manajemen mutu ISO 9001
-                     </label>
-                  </div>
-                  <div class="form-check">
-                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="input_sertifikasi_manajemen" id="" value="Manajemen lingkungan ISO 14001" required>
-                        Manajemen lingkungan ISO 14001
-                     </label>
-                  </div>
-                  <div class="form-check">
-                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="input_sertifikasi_manajemen" id="" value="Manajemen keselamatan OHSAS 18001" required>
-                        Manajemen keselamatan OHSAS 18001
+                        <input class="form-check-input" type="radio" name="input_sertifikasi_manajemen" id="" value="Manajemen mutu ISO 9001" checked>
+                        <?=$form[0]['sertifikasi_manajemen_diminati'] ?>
                      </label>
                   </div>
                </div>
