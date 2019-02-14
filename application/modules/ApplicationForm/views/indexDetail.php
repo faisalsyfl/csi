@@ -1,10 +1,24 @@
 <!-- ### $App Screen Content ### -->
-<h3 class="c-grey-900 offset-md-1">Formulir Aplikasi Sertifikasi</h3>
-<h6 class="mT-10 mB-30 offset-md-1">Silahkan isi dengan jelas informasi di bawah ini :</h6>
-<?php echo '<pre>' ?>
+
+<div class="row">
+  <div class="col-md-10">
+    <h3 class="c-grey-900 offset-md-1">Formulir Aplikasi Sertifikasi</h3>
+<h6 class="mT-10 mB-30 offset-md-1"><?php echo "CERT-M000".$form[0]['id_form']."/".$form[0]['sertifikasi_manajemen_diminati']."/".$form[0]['nama_organisasi']; ?></h6>
+
+  </div>
+
+  <div class="col-md-1">
+    <a href="<?php echo base_url(). 'ApplicationForm/list'?>" >
+                      <button type="button" class="btn cur-p btn-primary" title="Hapus">
+                        Kembali
+                      </button>
+                    </a>
+  </div>
+</div>
+<!-- <?php echo '<pre>' ?>
 <?php print_r($form) ?>
 <?php echo '</pre>' ?>
-
+ -->
 <?php echo form_open_multipart("ApplicationForm/addForm") ?>
    <div class="row gap-20 masonry pos-r">
       
@@ -13,11 +27,11 @@
       <div class="masonry-item col-md-10 offset-md-1">
          <div class="bgc-white p-20 bd">
             <h6 class="c-grey-900">A. SERTIFIKASI MANAJEMEN YANG DIINGINKAN</h6>
-            <div class="mT-30">
+            <div class="mT-10">
                <div class="form-group">
                   <div class="form-check">
                      <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="input_sertifikasi_manajemen" id="" value="Manajemen mutu ISO 9001" checked>
+                        <input class="form-check-input" type="radio" name="input_sertifikasi_manajemen" id="" value="Manajemen mutu ISO 9001"  checked disabled>
                         <?=$form[0]['sertifikasi_manajemen_diminati'] ?>
                      </label>
                   </div>
@@ -30,30 +44,12 @@
       <div class="masonry-item col-md-10 offset-md-1">
          <div class="bgc-white p-20 bd">
             <h6 class="c-grey-900">B. STATUS APLIKASI SERTIFIKASI</h6>
-            <div class="mT-30">
+            <div class="mT-10">
                <div class="form-group">
                   <div class="form-check">
                      <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="input_status_aplikasi" id="gridRadios1" value="Sertifikasi awal" required>
-                        Sertifikasi awal
-                     </label>
-                  </div>
-                  <div class="form-check">
-                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="input_status_aplikasi" id="gridRadios2" value="Sertifikasi ulang" required>
-                        Sertifikasi ulang
-                     </label>
-                  </div>
-                  <div class="form-check">
-                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="input_status_aplikasi" id="gridRadios3" value="Penambahan ruang lingkup" required>
-                        Penambahan ruang lingkup
-                     </label>
-                  </div>
-                  <div class="form-check">
-                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="input_status_aplikasi" id="gridRadios3" value="Pengurangan ruang lingkup" required>
-                        Pengurangan ruang lingkup
+                        <input class="form-check-input" type="radio" name="input_status_aplikasi" id="gridRadios1" value="Sertifikasi awal"  checked disabled>
+                        <?=$form[0]['status_aplikasi_sertifikasi'] ?>
                      </label>
                   </div>
                </div>
@@ -67,27 +63,16 @@
             <div class="mT-30">
                <div class="form-group">
                   <label for="exampleInputEmail1" style="font-size: 16px">Nama Organisasi</label>
-                  <select class="form-control mT-10" id="example1" name="input_nama_organisasi" required="required">
-                     <option value="" selected disabled>-- Pilih Organisasi --</option>                     
-                     <?php foreach ($organization as $i => $a){ ?>
-                      <option
-                        data-info4="<?php echo $a->organizationPhone; ?>"
-                        data-info5="<?php echo $a->organizationWebsite; ?>"
-                        data-info6="<?php echo $a->organizationType; ?>">
-                        <?php echo $a->organizationName; ?>
-                      </option>
-                      <?php } ?>
-                  </select>
-               </div>
-
-               <div class="form-group">
-                  <input name="input_tlp_fax" type="text" id="info4" class="form-control" placeholder="Telp" readonly>
+                  <input class="form-control mT-10" id="example1" name="input_nama_organisasi" value="<?=$form[0]['nama_organisasi']?>" disabled>
                </div>
                <div class="form-group">
-                  <input name="input_website" type="text" id="info5" class="form-control" placeholder="Website" readonly>
+                  <input name="input_tlp_fax" type="text" id="info4" class="form-control" placeholder="Telp" value="<?=$form[0]['tlp_fax']?>" readonly>
                </div>
                <div class="form-group">
-                  <input name="input_jenis_organisasi" type="text" id="info6" class="form-control" placeholder="Jenis Organisasi" readonly>
+                  <input name="input_website" type="text" id="info5" class="form-control" placeholder="Website" value="<?=$form[0]['website']?>" readonly>
+               </div>
+               <div class="form-group">
+                  <input name="input_jenis_organisasi" type="text" id="info6" class="form-control" placeholder="Jenis Organisasi" value="<?=$form[0]['jenis_organisasi']?>" readonly>
                </div>
 
                <hr class="mT-30">
@@ -97,56 +82,50 @@
                <div class="form-row mT-20">
                   <div class="col-md-3">
                      <label>Manajamen</label>
-                     <input required="required" type="text" data-toggle="tooltip" data-placement="bottom" title="Jumlah Karyawan yang terkait dalam sertifikasi" name="input_jml_manajemen" id="txt1"  onkeyup="sum();" class="form-control" placeholder="Jumlah orang" >
+                     <input required="required" type="text" data-toggle="tooltip" data-placement="bottom" title="Jumlah Karyawan yang terkait dalam sertifikasi" name="input_jml_manajemen" id="txt1"  onkeyup="sum();" class="form-control" value="<?=$form[0]['jml_manajemen'].' orang'?>" disabled>
                   </div>
                   <div class="col-md-3">
                      <label>Administrasi</label>
-                     <input required="required" type="text" data-toggle="tooltip" data-placement="bottom" title="Jumlah Karyawan pada bagian Administrasi" name="input_jml_admin" id="txt2"  onkeyup="sum();" class="form-control" placeholder="Jumlah orang" >
+                     <input required="required" type="text" data-toggle="tooltip" data-placement="bottom" title="Jumlah Karyawan pada bagian Administrasi" name="input_jml_admin" id="txt2"  onkeyup="sum();" class="form-control" value="<?=$form[0]['jml_admin'].' orang'?>" disabled>
                   </div>
                   <div class="col-md-3">
                      <label>Part-time</label>
-                     <input required="required" type="text" data-toggle="tooltip" data-placement="bottom" title="Jumlah Karyawan Pekerja lepas yang terkait sertifikasi" name="input_jml_parttime" id="txt3"  onkeyup="sum();" class="form-control" placeholder="Jumlah orang" >
+                     <input required="required" type="text" data-toggle="tooltip" data-placement="bottom" title="Jumlah Karyawan Pekerja lepas yang terkait sertifikasi" name="input_jml_parttime" id="txt3"  onkeyup="sum();" class="form-control" value="<?=$form[0]['jml_parttime'].' orang'?>" disabled>
                   </div>
                   <div class="col-md-3">
                      <label>Non-permanen</label>
-                     <input required="required" type="text" data-toggle="tooltip" data-placement="bottom" title="Jumlah Karyawan Tidak tetap (Outsourcing/Pegawai kontrak)" name="input_jml_nonpermanen" id="txt4"  onkeyup="sum();" class="form-control" placeholder="Jumlah orang" >
+                     <input required="required" type="text" data-tog disabledgle="tooltip" data-placement="bottom" title="Jumlah Karyawan Tidak tetap (Outsourcing/Pegawai kontrak)" name="input_jml_nonpermanen" id="txt4"  onkeyup="sum();" class="form-control" value="<?=$form[0]['jml_nonpermanen'].' orang'?>" disabled>
                   </div>
                </div>
 
                <label class="mT-20">Operasional</label>
                <div class="form-row">
                   <div class="col-md-4">
-                     <input required="required" type="phone" name="input_jml_opl_shift1" id="txt5"  onkeyup="sum();" class="form-control" placeholder="Jumlah orang" >
-                     <small id="emailHelp" class="form-text text-muted">Shift 1</small>
+                     <input required="required" type="phone" name="input_jml_opl_shift1" id="txt5"  onkeyup="sum();" class="form-control" value="<?=$form[0]['jml_opl_shift1'].' orang'?>" disabled>
+                     <small id="emailHelp" class="form-text text-muted" >Shift 1</small>
                   </div>
                   <div class="col-md-4">
-                     <input required="required" type="text" name="input_jml_opl_shift2" id="txt6"  onkeyup="sum();" class="form-control" placeholder="Jumlah orang" >
-                     <small id="emailHelp" class="form-text text-muted">Shift 2</small>
+                     <input required="required" type="text" name="input_jml_opl_shift2" id="txt6"  onkeyup="sum();" class="form-control" value="<?=$form[0]['jml_opl_shift2'].' orang'?>" disabled>
+                     <small id="emailHelp" class="form-text text-muted" >Shift 2</small>
                   </div>
                   <div class="col-md-4">
-                     <input required="required" type="text" name="input_jml_opl_shift3" id="txt7"  onkeyup="sum();" class="form-control" placeholder="Jumlah orang">
-                     <small id="emailHelp" class="form-text text-muted">Shift 3</small>
+                     <input required="required" type="text" name="input_jml_opl_shift3" id="txt7"  onkeyup="sum();" class="form-control" value="<?=$form[0]['jml_opl_shift3'].' orang'?>" disabled>
+                     <small id="emailHelp" class="form-text text-muted" >Shift 3</small>
                   </div>
                </div>
 
                <label class="mT-20">Silahkan Pilih :</label>
                <div class="form-check">
                   <label class="form-check-label">
-                     <input class="form-check-input" type="radio" name="input_pekerjaan_shift" id="gridRadios3" value="Setiap shift melakukan pekerjaan yang sama" required="">
-                     Setiap shift melakukan pekerjaan yang sama
-                  </label>
-               </div>
-               <div class="form-check">
-                  <label class="form-check-label">
-                     <input class="form-check-input" type="radio" name="input_pekerjaan_shift" id="gridRadios3" value="Masing-masing shift adalah pekerjaan dengan proses berkelanjutan" required>
-                     Masing-masing shift adalah pekerjaan dengan proses berkelanjutan
+                     <input class="form-check-input" type="radio" name="input_pekerjaan_shift" id="gridRadios3" value="Setiap shift melakukan pekerjaan yang sama" required="" checked disabled>
+                     <?=$form[0]['pekerjaan_shift']?>
                   </label>
                </div>
 
                <label class="mT-20">Total Personil :</label>
                <div class="form-row">
                   <div class="col-md-4">
-                     <input required="required" type="text" name="input_jml_personil" id="txt7"  onkeyup="sum();" class="form-control" placeholder="Jumlah orang">
+                     <input required="required" type="text" name="input_jml_personil" id="txt7"  onkeyup="sum();" class="form-control" placeholder="Jumlah orang" value="<?=$form[0]['jml_personil'].' orang'?>" disabled>
                   </div>
                </div>
 
@@ -159,18 +138,18 @@
                </label>
                
                <label class="mT-20">Alamat Kantor Pusat</label>
-               <input class="form-control" type="text" name="input_alamat_kantor_pusat">
+               <input class="form-control" type="text" name="input_alamat_kantor_pusat" value="<?=$form[0]['alamat_kantor_pusat']?>" disabled>
                  <!-- <option></option> -->
                <!-- </select> -->
 
                <label class="mT-30">Lokasi Kegiatan Utama</label>
-               <input class="form-control" type="text" name="input_l_kegiatan_utama">
+               <input class="form-control" type="text" name="input_l_kegiatan_utama" value="<?=$form[0]['l_kegiatan_utama']?>" disabled>
                <!-- <select name="l_kegiatan_utama[]" class="form-control" > -->
                   <!-- <option></option>
                </select> -->
 
                <label>Kegiatan/proses/area kerja yang dilakukan </label>
-               <input required="required" type="text" class="form-control" name="input_p_kegiatan_utama">
+               <input required="required" type="text" class="form-control" name="input_p_kegiatan_utama"  value="<?=$form[0]['p_kegiatan_utama']?>" disabled>
 
                <label class="mT-20">Organisasi menginginkan sertifikasi multilokasi ?</label>
                <div class="form-row">
@@ -178,19 +157,8 @@
                   <div class="form-group">
                   <div class="form-check">
                      <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="input_multilokasi" id="gridRadios1" value="Ya">
+                        <input class="form-check-input" type="radio" name="input_multilokasi" id="gridRadios1" value="<?=$form[0]['multilokasi']?>" checked disabled>
                         Ya
-                     </label>
-                  </div>
-               </div>
-                </div>
-
-                <div class="col-md-3">
-                  <div class="form-group">
-                  <div class="form-check">
-                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="input_multilokasi" id="gridRadios1" value="Tidak">
-                        Tidak
                      </label>
                   </div>
                </div>
@@ -208,7 +176,7 @@
             <h6 class="c-grey-900">D. RUANG LINGKUP SERTIFIKASI YANG DIAJUKAN</h6>
             <div class="mT-30">
                <div class="form-group">
-                      <input required="required" type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Kegiatan/proses pada organisasi yang ingin mendapatkan sertifikasi" name="input_ruanglingkup_sertifikasi">
+                      <input required="required" type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Kegiatan/proses pada organisasi yang ingin mendapatkan sertifikasi" name="input_ruanglingkup_sertifikasi" value="<?=$form[0]['ruanglingkup_sertifikasi']?>" disabled>
                       <small id="emailHelp" class="form-text text-muted">
                       (Kegiatan/proses pada organisasi yang ingin mendapatkan sertifikasi)
                     </small>
@@ -227,16 +195,8 @@
               <div class="col-md-3">
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="input_info_tambahan1" id="gridRadios3" value="Ya">
-                    Ya
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="input_info_tambahan1" id="gridRadios3" value="Tidak">
-                    Tidak
+                    <input class="form-check-input" type="radio" name="input_info_tambahan1" id="gridRadios3" value="Ya" checked disabled>
+                    <?=$form[0]['info_tambahan1']?>
                   </label>
                 </div>
               </div>
@@ -249,16 +209,8 @@
               <div class="col-md-3">
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="input_info_tambahan2" id="gridRadios3" value="Ya">
-                    Ya
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="input_info_tambahan2" id="gridRadios3" value="Tidak">
-                    Tidak
+                    <input class="form-check-input" type="radio" name="input_info_tambahan2" id="gridRadios3" checked disabled>
+                    <?=$form[0]['info_tambahan2']?>
                   </label>
                 </div>
               </div>
@@ -271,16 +223,8 @@
               <div class="col-md-3">
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="input_info_tambahan3" id="gridRadios3" value="Ya">
-                    Ya
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="input_info_tambahan3" id="gridRadios3" value="Tidak">
-                    Tidak
+                    <input class="form-check-input" type="radio" name="input_info_tambahan3" id="gridRadios3" value="Ya" checked disabled>
+                    <?=$form[0]['info_tambahan3']?>
                   </label>
                 </div>
               </div>
@@ -293,16 +237,8 @@
               <div class="col-md-3">
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="input_info_tambahan4" id="gridRadios3" value="Ya">
-                    Ya
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="input_info_tambahan4" id="gridRadios3" value="Tidak">
-                    Tidak
+                    <input class="form-check-input" type="radio" name="input_info_tambahan4" id="gridRadios3" value="Ya" checked disabled>
+                    <?=$form[0]['info_tambahan4']?>
                   </label>
                 </div>
               </div>
@@ -314,17 +250,9 @@
            <div class="form-row">
               <div class="col-md-3">
                 <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="input_info_tambahan5" id="gridRadios3" value="Ya">
-                    Ya
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="input_info_tambahan5" id="gridRadios3" value="Tidak">
-                    Tidak
+                  <label class="form-check-label"> 
+                    <input class="form-check-input" type="radio" name="input_info_tambahan5" id="gridRadios3" value="Ya" checked disabled>
+                    <?=$form[0]['info_tambahan5']?>
                   </label>
                 </div>
               </div>
@@ -337,16 +265,8 @@
               <div class="col-md-3">
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="input_info_tambahan6" id="gridRadios3" value="Ya">
-                    Ya
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="input_info_tambahan6" id="gridRadios3" value="Tidak">
-                    Tidak
+                    <input class="form-check-input" type="radio" name="input_info_tambahan6" id="gridRadios3" value="Ya" checked disabled>
+                    <?=$form[0]['info_tambahan6']?>
                   </label>
                 </div>
               </div>
@@ -355,12 +275,12 @@
 
           <label>7. Mohon tuliskan peraturan perundangan atau peraturan lainnya yang terkait dengan lingkup yang akan disertifikasi.</label>
           <div class="form-group">
-            <input required="required" type="text" class="form-control" name="input_info_tambahan7">
+            <input required="required" type="text" class="form-control" name="input_info_tambahan7" value="<?=$form[0]['info_tambahan7']?>" disabled>
           </div>
 
           <label>8. Sudah berapa lama sistem yang ingin disertifikasi ini telah berjalan?</label>
           <div class="form-group">
-            <input required="required" type="text" class="form-control" name="input_info_tambahan8">
+            <input required="required" type="text" class="form-control" name="input_info_tambahan8" value="<?=$form[0]['info_tambahan8']?>" disabled>
           </div>
         </div>
       </div>
@@ -370,32 +290,47 @@
             <h6 class="c-grey-900">F. DOKUMEN PERSYARATAN</h6>
             <div class="mT-20">
                <div class="form-group">
-                  <label for="exampleFormControlFile1"><b>1. Akte notaris atau legalitas pemohon/organisasi</b></label>
-                  <input type="file" class="form-control-file" name="input_file_dokumen_persyaratan1">
+                  <label for="exampleFormControlFile1"><b>1. Akte notaris atau legalitas pemohon/organisasi</b></label><br>
+                  <span class="icon-holder">
+                    <i class="c-black-500 fa fa-download"></i>
+                  </span>
+                  <a href="<?php echo base_url('uploads/formDocs/'.$form[0]['file_dokumen_persyaratan1']); ?>" target="_blank"><?php echo $form[0]['file_dokumen_persyaratan1']; ?></a>
                 </div>
             </div>
             <div class="mT-20">
                <div class="form-group">
-                  <label><b>2. Struktur Organisasi</b></label>
-                  <input type="file" class="form-control-file" name="input_file_dokumen_persyaratan2">
+                  <label><b>2. Struktur Organisasi</b></label><br>
+                  <span class="icon-holder">
+                    <i class="c-black-500 fa fa-download"></i>
+                  </span>
+                  <a href="<?php echo base_url('uploads/formDocs/'.$form[0]['file_dokumen_persyaratan2']); ?>" target="_blank"><?php echo $form[0]['file_dokumen_persyaratan2']; ?></a>
                 </div>
             </div>
             <div class="mT-20">
                <div class="form-group">
-                  <label for="exampleFormControlFile1"><b>3. Interaksi proses/business process organisasi</b></label>
-                  <input type="file" class="form-control-file" name="input_file_dokumen_persyaratan3">
+                  <label for="exampleFormControlFile1"><b>3. Interaksi proses/business process organisasi</b></label><br>
+                  <span class="icon-holder">
+                    <i class="c-black-500 fa fa-download"></i>
+                  </span>
+                  <a href="<?php echo base_url('uploads/formDocs/'.$form[0]['file_dokumen_persyaratan3']); ?>" target="_blank"><?php echo $form[0]['file_dokumen_persyaratan3']; ?></a>
                 </div>
             </div>
             <div class="mT-20">
                <div class="form-group">
-                  <label for="exampleFormControlFile1"><b>4. Layout area pabrik/organisasi</b></label>
-                  <input type="file" class="form-control-file" name="input_file_dokumen_persyaratan4">
+                  <label for="exampleFormControlFile1"><b>4. Layout area pabrik/organisasi</b></label><br>
+                  <span class="icon-holder">
+                    <i class="c-black-500 fa fa-download"></i>
+                  </span>
+                  <a href="<?php echo base_url('uploads/formDocs/'.$form[0]['file_dokumen_persyaratan4']); ?>" target="_blank"><?php echo $form[0]['file_dokumen_persyaratan4']; ?></a>
                 </div>
             </div>
             <div class="mT-20">
                <div class="form-group">
-                  <label for="exampleFormControlFile1"><b>5. Rekaman internal audit dan tinjauan manajemen terakhir</b></label>
-                  <input type="file" class="form-control-file" name="input_file_dokumen_persyaratan5">
+                  <label for="exampleFormControlFile1"><b>5. Rekaman internal audit dan tinjauan manajemen terakhir</b></label><br>
+                  <span class="icon-holder">
+                    <i class="c-black-500 fa fa-download"></i>
+                  </span>
+                  <a href="<?php echo base_url('uploads/formDocs/'.$form[0]['file_dokumen_persyaratan5']); ?>" target="_blank"><?php echo $form[0]['file_dokumen_persyaratan5']; ?></a>
                 </div>
             </div>
          </div>
@@ -424,11 +359,15 @@
       </div> -->
 
 
-      <div class="masonry-item col-md-10 offset-md-1">
+      <div class="masonry-item col-md-2 offset-md-5">
          <div class="bgc-white p-20 bd">
             <div class="mT-30">
                <div class="form-group">
-                  <input type="submit" name="submit" value="Simpan Formulir" class="form-control btn btn-primary">
+                  <a href="<?php echo base_url(). 'ApplicationForm/list'?>" >
+                      <button type="button" class="btn cur-p btn-primary" title="Hapus">
+                        Kembali
+                      </button>
+                    </a>
                 </div>
             </div>
          </div>

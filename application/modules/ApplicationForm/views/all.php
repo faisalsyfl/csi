@@ -32,7 +32,7 @@
                 <td><?=$ss->sertifikasi_manajemen_diminati;?></td>
                 <td><?=$ss->nama_organisasi;?></td>
                 <td><?=$ss->status_aplikasi_sertifikasi;?></td>
-                <td>
+                <td class="text-center">
                   <a href="<?=base_url(); ?>Status/index/<?=$ss->id_form; ?>">
                     <button type="button" class="btn cur-p btn-success btn-sm" title="Status">
                       Status
@@ -44,7 +44,13 @@
                       Proses
                       <i class="fa fa-arrow-right"></i>
                     </button>
-                  </a>                                   
+                  </a>
+                  <a href="<?=base_url(); ?>ApplicationForm/detail/<?=$ss->id_form; ?>">
+                    <button type="button" class="btn cur-p btn-primary btn-sm" title="Status">
+                      Detail
+                      <i class="fa fa-tasks"></i>
+                    </button> 
+                  </a>                                  
                 </td>
               </tr> 
               <?php } ?>
