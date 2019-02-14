@@ -11,6 +11,21 @@ class Status extends MY_Controller {
 
 	public function index($id=NULL){
 		$data['form'] = $this->ApplicationFormModel->selectById($id)->row_array();
+		$data['form']['status'] = json_decode($data['form']['status']);
+		foreach($data['form']['status'] as $key=>$value){
+			$temps = explode(",",$value);
+			foreach($temps as $temp){
+				$files[$key][] = $temp;
+			}
+		}
+		$data['files'] = $files;
+		// for($i=1;$i<=7;$i++){
+		// 	echo $data['form']['status'];
+		// 	$data['form']['status'][$i] = explode(",",$data['form']['status'][$i]);
+		// }
+		// echo "<pre>";
+		// print_r($files);
+		// echo "</pre>";
 		// print_r($data['form']);
 		// $data['status'] = $this->StatusModel->getData();
 		$this->template->set('controller', $this);
@@ -19,23 +34,7 @@ class Status extends MY_Controller {
 	}
 
 	public function updateStatus(){
-		//var_dump($id);
-		$statusId = $this->input->post('editStatusId');
-		$inputAplikasiSertifikasi1 = $this->input->post('inputAplikasiSertifikasi1');
-		$inputAplikasiSertifikasi2 = $this->input->post('inputAplikasiSertifikasi2');
-
-		$inputAplikasiSertifikasi = $inputAplikasiSertifika si1."0,0".$inputAplikasiSertifikasi2;
-		$statusData = array(
-			'aplikasiSertifikasi'	=> $inputAplikasiSertifikasi
-		// 	'kajianAplikasi'	=> implode(",",$this->input->post('inputKajianAplikasi')),
-		// 	'penawaran'	=> implode(",",$this->input->post('inputPenawaran')),
-		// 	'auditTahap1'	=> implode(",",$this->input->post('inputAuditTahap1')),
-		// 	'auditTahap2'	=> implode(",",$this->input->post('inputAuditTahap2')),
-		// 	'evaluasi'	=> implode(",",$this->input->post('inputEvaluasi')),
-		// 	'sertifikat'	=> implode(",",$this->input->post('inputSertifikat'))
-		);
-
-		$editStatus = $this->StatusModel->save($statusData, $statusId);
+		
 	}
 
 	public function convertToBool($array){
