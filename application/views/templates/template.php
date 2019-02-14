@@ -177,7 +177,7 @@
               </a>
             </li> -->
             <li class="nav-item">
-              <a class='sidebar-link <?php if($this->uri->segment(1) == "Organisasi") echo "active"; ?>' href="<?php echo base_url('Organisasi');?>">
+              <a class='sidebar-link <?php if($this->uri->segment(1) == "Organization") echo "active"; ?>' href="<?php echo base_url('Organization');?>">
                 <span class="icon-holder">
                   <i class="c-yellow-500 fa fa-sitemap"></i>
                 </span>
