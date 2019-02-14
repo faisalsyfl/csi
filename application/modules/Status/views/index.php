@@ -43,7 +43,7 @@
             </div>
           </div>          
         </form>
-        <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-default">Tambah Dokumen</button><br><br>         
+        <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-default"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah Dokumen</button><br><br>         
         <table id="" class="table table-bordered text-nowrap">
           <col width="3%">
           <col width="5%">
@@ -54,7 +54,7 @@
                 <th>Proses</th>
                 <th>Nomor Dokumen</th>
                 <th>Nama Dokumen</th>
-                <th colspan="2">Nama Dokumen</th>
+                <th>Dokumen</th>
                 <th >Aksi</th>
               </tr>
             </thead>
@@ -65,24 +65,24 @@
                   <td rowspan="2">Aplikasi Sertifikasi</td>
                   <td>F.SC-02/Rev.3</td>
                   <td>Formulir Aplikasi</td>
-                  <td><input type="file" name="docs12"></td>
+                  
                   <td>
-                    <?php if($files[1][0] == 0){ ?>
+                    <?php if($files[1][0] === 0){ ?>
                     <i style="color:red;">belum di unggah</i>
                     <?php }else{ ?>
                       <a href="" title="" style="color:green;" >
-                        <i class="fa fa-download"></i> <?=$files[1][0] ?>
+                        <i class="fa fa-download"></i> <?php echo $files[1][0]; ?>
                       </a>
                     <?php } ?>
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Kelengkapan Dokumen</td>
-                  <td><input type="file" name="docs12"></td>
+                  
                   <td>
                     <?php if($files[1][1] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -94,7 +94,7 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>                
                 <tr>
@@ -102,7 +102,7 @@
                   <td>Kajian Sertifikasi</td>
                   <td>F.SC-03/Rev.4</td>
                   <td>Kajian Aplikasi Sertifikasi</td>
-                  <td><input type="file" name="docs2"></td>
+                  
                   <td>
                     <?php if($files[2][0] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -114,7 +114,7 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
@@ -122,7 +122,7 @@
                   <td rowspan="4">Penawaran dan Pembayaran</td>
                   <td></td>
                   <td>Penawaran</td>
-                  <td><input type="file" name="docs31"></td>
+                  
                   <td>
                     <?php if($files[3][0] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -134,13 +134,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F.SC-04/Rev.1</td>
                   <td>Perjanjian</td>
-                  <td><input type="file" name="docs32"></td>
+                  
                   <td>
                     <?php if($files[3][1] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -152,13 +152,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>                
                 <tr>
                   <td></td>
                   <td>Invoice</td>
-                  <td><input type="file" name="docs33"></td>
+                  
                   <td>
                     <?php if($files[3][2] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -170,13 +170,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>                
                 <tr>
                   <td></td>
                   <td>Kuitansi</td>
-                  <td><input type="file" name="docs34"></td>
+                  
                   <td>
                     <?php if($files[3][3] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -188,7 +188,7 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
@@ -196,7 +196,7 @@
                   <td rowspan="7">Audit Tahap 1</td>                  
                   <td>F.SC-05/Rev.0</td>
                   <td>Notifikasi Tim Audit Tahap 1</td>
-                  <td><input type="file" name="docs41"></td>
+                  
                   <td>
                     <?php if($files[4][0] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -208,13 +208,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F.SC-06/Rev.1</td>
                   <td>Rencana Audit Tahap 1</td>
-                  <td><input type="file" name="docs42"></td>
+                  
                   <td>
                     <?php if($files[4][1] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -226,13 +226,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F.SC-08/Rev.0</td>
                   <td>Audit Kecukupan</td>
-                  <td><input type="file" name="docs43"></td>
+                  
                   <td>
                     <?php if($files[4][2] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -244,13 +244,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F.SC-07/Rev.0</td>
                   <td>Daftar Hadir Tahap 1</td>
-                  <td><input type="file" name="docs44"></td>
+                  
                   <td>
                     <?php if($files[4][3] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -262,13 +262,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F.SC-14/Rev.3</td>
                   <td>Laporan Ketidaksesuaian</td>
-                  <td><input type="file" name="docs45"></td>
+                  
                   <td>
                     <?php if($files[4][4] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -280,13 +280,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F.SC-10/Rev.0</td>
                   <td>Laporan Audit Tahap 1</td>
-                  <td><input type="file" name="docs46"></td>
+                  
                   <td>
                     <?php if($files[4][5] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -298,13 +298,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F.SC-15/Rev.0</td>
                   <td>Verifikasi Ketidaksesuaian Tahap 1</td>
-                  <td><input type="file" name="docs47"></td>
+                  
                   <td>
                     <?php if($files[4][6] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -316,7 +316,7 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>                                     
                 <tr>
@@ -324,7 +324,7 @@
                   <td rowspan="10">Audit Tahap 2</td>                  
                   <td>F.SC-05/Rev.0</td>
                   <td>Notifikasi Tim Audit Tahap 2</td>
-                  <td><input type="file" name="docs51"></td>
+                  
                   <td>
                     <?php if($files[5][0] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -336,13 +336,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F.SC-06/Rev.1</td>
                   <td>Rencana Audit Tahap 2</td>
-                  <td><input type="file" name="docs52"></td>
+                  
                   <td>
                     <?php if($files[5][1] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -354,13 +354,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F.SC-07/Rev.0</td>
                   <td>Daftar Hadir Tahap 2</td>
-                  <td><input type="file" name="docs53"></td>
+                  
                   <td>
                     <?php if($files[5][2] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -372,13 +372,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F.SC-12/Rev.0</td>
                   <td>Lembar Periksa Audit Tahap 2</td>
-                  <td><input type="file" name="docs54"></td>
+                  
                   <td>
                     <?php if($files[5][3] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -390,13 +390,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F.SC-14/Rev.3</td>
                   <td>Laporan Ketidaksesuaian Tahap 2</td>
-                  <td><input type="file" name="docs55"></td>
+                  
                   <td>
                     <?php if($files[5][4] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -408,13 +408,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F.SC-16/Rev.0</td>
                   <td>Laporan Audit Tahap 2</td>
-                  <td><input type="file" name="docs56"></td>
+                  
                   <td>
                     <?php if($files[5][5] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -426,13 +426,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F. Sert-03/Rev.0</td>
                   <td>Buku Harian Auditor</td>
-                  <td><input type="file" name="docs57"></td>
+                  
                   <td>
                     <?php if($files[5][6] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -444,13 +444,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F. Sert-03/Rev.0</td>
                   <td>Pemantauan Lapangan Personel Sertifikasi</td>
-                  <td><input type="file" name="docs58"></td>
+                  
                   <td>
                     <?php if($files[5][7] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -462,13 +462,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F.SC-15/Rev.0</td>
                   <td>Verifikasi Ketidaksesuaian Tahap 2</td>
-                  <td><input type="file" name="docs59"></td>
+                  
                   <td>
                     <?php if($files[5][8] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -480,13 +480,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>            
                 <tr>
                   <td>F. Sert-07/Rev.0</td>
                   <td>Keterangan Bebas Konflik Kepentingan</td>
-                  <td><input type="file" name="docs50"></td>
+                  
                   <td>
                     <?php if($files[5][9] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -498,7 +498,7 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
@@ -506,7 +506,7 @@
                   <td rowspan="2">Evaluasi</td>
                   <td>F.SC-02/Rev.3</td>
                   <td>Notifikasi Tim Evaluasi</td>
-                  <td><input type="file" name="docs61"></td>
+                  
                   <td>
                     <?php if($files[6][0] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -518,13 +518,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>  
                 <tr>
                   <td>F.SC-02/Rev.3</td>
                   <td>Laporan Evaluasi</td>
-                  <td><input type="file" name="docs62"></td>
+                  
                   <td>
                     <?php if($files[6][1] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -536,7 +536,7 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>  
                 <tr>
@@ -544,7 +544,7 @@
                   <td rowspan="4">Sertifikat</td>
                   <td></td>
                   <td>Memo Dinas Penerbitan Sertifikat</td>
-                  <td><input type="file" name="docs71"></td>
+                  
                   <td>
                     <?php if($files[7][0] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -556,13 +556,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr> 
                 <tr>
                   <td></td>
                   <td>Form Verifikasi Sertifikat/Draft Sertifikat</td>
-                  <td><input type="file" name="docs72"></td>
+                  
                   <td>
                     <?php if($files[7][1] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -574,13 +574,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Sertifikat</td>
-                  <td><input type="file" name="docs73"></td>
+                  
                   <td>
                     <?php if($files[7][2] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -592,13 +592,13 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
                 <tr>
                   <td>F.SC-22/Rev.0</td>
                   <td>Program Survailen</td>
-                  <td><input type="file" name="docs74[]"></td>
+                  >
                   <td>
                     <?php if($files[7][3] == 0){ ?>
                     <i style="color:red;">belum di unggah</i>
@@ -610,7 +610,7 @@
                     <?php } ?>                    
                   </td>
                   <td>
-                    <button type="submit" class="btn btn-primary" >Save</button>                    
+                    <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
                   </td>
                 </tr>
             </tbody>
@@ -623,7 +623,7 @@
 
 <!--Modal Add Employee-->
 <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
           <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Tambah Dokumen Proses</h5>
@@ -632,14 +632,21 @@
                   <span aria-hidden="true">&times;</span>
               </button>
           </div>
-          <form role="form" method="POST" enctype="multipart/form-data" action="<?php echo base_url();?>Employee/addEmployee">
+          <?=form_open_multipart('Status/updateStatus'); ?>
+          <!-- <form role="form" method="POST" enctype="multipart/form-data" action="<?php echo base_url();?>Employee/addEmployee"> -->
             <div class="modal-body">
+              <div class="form-group">
+                <p class="help-block"><i>The file formats received are: any with a maximum file size of 2 MegaBytes (MB).</i></p>
+                <br>
+                <input type="file" id="document" name="addFileupload">  
+              </div>              
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label for="inputEmail4">Dokumen</label>
-                  <select name="doc">
-                    <option value=""></option>
-                    option
+                  <select name="doc" class="form-control">
+                    <?php foreach($doc as $key=>$s){ ?>
+                    <option value="<?=$key ?>"><?=$s; ?></option>
+                    <?php } ?>
                   </select>
                 </div>
               </div>
@@ -648,7 +655,8 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                     Close
                 </button>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <input type="hidden" name="formId" value="<?=$this->uri->segment(3); ?>">
+                <button type="submit" class="btn btn-primary">Upload</button>
             </div>
           </form>
       </div>
