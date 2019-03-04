@@ -6,29 +6,25 @@ class Status extends MY_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('ApplicationForm/ApplicationFormModel');
+		$this->load->model('FilesModel');
 	}
 
 	public function index($id=NULL){
 		$data['form'] = $this->ApplicationFormModel->selectById($id)->row_array();
-		$data['form']['status'] = json_decode($data['form']['status']);
-		print_r($data['form']['status']);
-		foreach($data['form']['status'] as $key=>$value){
-			if(is_string($value)){
-				$temps = explode(',',$value);
-				print_r($temps);
-				foreach($temps as $temp){
-					$files[$key][] = $temp;
-				}
-				echo ".";
-			}else{
-				echo "?";
-				$files[$key] = $value;
+		$temp = $this->FilesModel->selectByFormId($id)->result();
+		// print_r($temp);
+		if(count($temp) > 0){
+			foreach($temp as $ss){
+				$x = explode(".",$ss->doc);
+				$files[$x[0]][$x[1]-1] = $ss->filename;
 			}
+		}else{
+			$files = array();
 		}
-		echo "<pre>";
-		print_r($files);
-		echo "</pre>";
-		$data['files'] = $files;
+
+		// echo "<pre>";
+		// print_r($files);
+		// echo "</pre>";
 		$data['doc'] = array(
 		'1.1' => 'Formulir Aplikasi',
 		'1.2' =>'Kelengkapan Dokumen',
@@ -62,16 +58,7 @@ class Status extends MY_Controller {
 		'7.4'=>'Program Survailen'
 		);
 
-		// for($i=1;$i<=7;$i++){
-		// 	echo $data['form']['status'];
-		// 	$data['form']['status'][$i] = explode(",",$data['form']['status'][$i]);
-		// }
-		// echo "<pre>";
-		// print_r($files);
-		// echo "</pre>";
-		// print_r($data['form']);
-		// $data['status'] = $this->StatusModel->getData();
-
+		$data['files'] = $files;
 		$this->template->set('controller', $this);
 		$this->template->load_partial('templates/template', 'index', $data);
 
@@ -85,7 +72,7 @@ class Status extends MY_Controller {
 		$config['allowed_types']        = '*';
 		$config['max_size']             = 0;
 		$config['overwrite']            = true;
-		$config['file_name']            = $post['doc']."_".time();
+		// $config['file_name']            = $post['doc']."_".time();
 		$this->load->library('upload', $config);
 		$filename = '';
 		if ( ! $this->upload->do_upload('addFileupload')){
@@ -97,18 +84,12 @@ class Status extends MY_Controller {
 			$filename = $data['gambar']['upload_data']['file_name'];
 		}
 
-		$data['form'] = $this->ApplicationFormModel->selectById($post['formId'])->row_array();
-		$data['form']['status'] = json_decode($data['form']['status']);
-		foreach($data['form']['status'] as $key=>$value){
-			$files[$key][] = $value;
-		}
-		$filedata = $this->upload->data();
-		$temp = explode(".",$post['doc']);
-		$files[$temp[0]][$temp[1]-1] = ['valid'=>'0','name'=>$filedata['name']];
-		$x = $this->ApplicationFormModel->save(['status'=>json_encode($files)],$post['formId']);
-		// echo "<pre>";
-		// print_r($files);
-		// echo "</pre>";
+		$post['filename'] = $filename;
+		$id = $this->FilesModel->save($post);
+
+
+		// $all = $this->FilesModel->getDat
+		redirect('Status/index/'.$post['formId']);
 	}
 
 	public function convertToBool($array){
@@ -142,6 +123,7 @@ class Status extends MY_Controller {
 
 		}			
 		
+
 		// $this->ModelRMP->update($idr,$post);
 		// redirect('RMP/tiga/'.$id);
 

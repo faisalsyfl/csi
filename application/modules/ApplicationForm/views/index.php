@@ -161,11 +161,11 @@
 
                <hr class="mT-30">
                <label class="mt-10" style="font-size: 16px">Alamat Kantor Pusat dan Lokasi Kegiatan <br></label>
-               <label style="font-size: 14px">
+               <p style="font-size: 14px">
                   1) <b>Lokasi kegiatan utama</b> adalah lokasi pusat kegiatan Organisasi. Lokasi kegiatan utama bisa sama atau berbeda dengan lokasi kantor pusat Organisasi. <br><br>
                   2) <b>Lokasi kegiatan lain</b> adalah lokasi kegiatan selain lokasi utama yang terpisah secara geografis. Contohnya kantor cabang, pabrik perakitan yang terpisah dari pabrik utama, wilayah kerja terpisah dari kantor utama, dan lain-lain. <br><br>
                   3) <b>Lokasi non permanen</b> adalah lokasi kegiatan bersifat sementara yang pada masa mendatang tidak akan menjadi lokasi kegiatan Organisasi lagi. Contohnya lokasi proyek konstruksi dan lain-lain.
-               </label>
+               </p>
                
                <label class="mT-20">Alamat Kantor Pusat</label>
                <input class="form-control" type="text" name="input_alamat_kantor_pusat">

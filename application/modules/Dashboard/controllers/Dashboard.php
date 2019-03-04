@@ -6,10 +6,28 @@ class Dashboard extends MY_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('DashboardModel');
+		$this->load->model('Status/FilesModel');
 	}
 
 	public function index(){
-		$data['sertifikasi'] = $this->DashboardModel->getDataJoin();
+		$t = $this->DashboardModel->getDataSertifikasi();
+		// print_r($t);
+		if(count($t) > 0){
+			foreach($t as $key=>$x){
+				$pos = $this->FilesModel->selectByFormId($x->id_form)->result_array();
+				foreach($pos as $ps){
+					$l  = explode(".",$ps['doc']);
+					if(!isset($track[$x->id_form][$l[0]])){
+						$track[$x->id_form][$l[0]] = 1;
+					}else{
+						$track[$x->id_form][$l[0]]++;
+					}
+				}
+			}
+		}
+		// print_r($track);
+		$data['sertifikasi'] = $t;
+		$data['track'] = $track;
 		$this->template->set('controller', $this);
 		$this->template->load_partial('templates/template', 'index', $data);
 	}

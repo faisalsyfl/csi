@@ -15,7 +15,7 @@
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">No Kontrak</label>
             <div class="col-sm-10">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="XXX/XXXX/XXXX">
+              <input type="email" class="form-control" id="inputEmail3" placeholder="Contract Number">
             </div>
           </div>
           <div class="form-group row">
@@ -67,13 +67,15 @@
                   <td>Formulir Aplikasi</td>
                   
                   <td>
-                    <?php if($files[1][0] === 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[1][0])){ ?>
+                      <a href="<?php echo base_url(); ?>uploads/aplikasi/<?php if(isset($files[1][0])){ echo $files[1][0]; } ?>" target="_blank"
+                        title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[1][0])){ echo $files[1][0]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                      <a href="" title="" style="color:green;" >
-                        <i class="fa fa-download"></i> <?php echo $files[1][0]; ?>
-                      </a>
-                    <?php } ?>
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -84,14 +86,14 @@
                   <td>Kelengkapan Dokumen</td>
                   
                   <td>
-                    <?php if($files[1][1] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[1][1])){ ?>
+                      <a href="<?php echo base_url(); ?>uploads/aplikasi/<?php if(isset($files[1][1])){ echo $files[1][1]; } ?>" target="_blank" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[1][1])){ echo $files[1][1]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[1][1] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -104,14 +106,14 @@
                   <td>Kajian Aplikasi Sertifikasi</td>
                   
                   <td>
-                    <?php if($files[2][0] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[2][0])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[2][0])){ echo $files[2][0]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[2][0] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                    
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -124,14 +126,14 @@
                   <td>Penawaran</td>
                   
                   <td>
-                    <?php if($files[3][0] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[3][0])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[3][0])){ echo $files[3][0]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[3][0] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                   
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -142,14 +144,14 @@
                   <td>Perjanjian</td>
                   
                   <td>
-                    <?php if($files[3][1] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[3][1])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[3][1])){ echo $files[3][1]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[3][1] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                    
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -158,16 +160,16 @@
                 <tr>
                   <td></td>
                   <td>Invoice</td>
-                  
                   <td>
-                    <?php if($files[3][2] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    
+                    <?php if(isset($files[3][2])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[3][2])){ echo $files[3][2]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[3][2] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?> 
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -176,16 +178,16 @@
                 <tr>
                   <td></td>
                   <td>Kuitansi</td>
-                  
                   <td>
-                    <?php if($files[3][3] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    
+                    <?php if(isset($files[3][3])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[3][3])){ echo $files[3][3]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[3][3] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?> 
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -198,14 +200,14 @@
                   <td>Notifikasi Tim Audit Tahap 1</td>
                   
                   <td>
-                    <?php if($files[4][0] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[4][0])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[4][0])){ echo $files[4][0]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[4][0] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>               
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -216,14 +218,14 @@
                   <td>Rencana Audit Tahap 1</td>
                   
                   <td>
-                    <?php if($files[4][1] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[4][1])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[4][1])){ echo $files[4][1]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[4][1] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                   
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -234,14 +236,14 @@
                   <td>Audit Kecukupan</td>
                   
                   <td>
-                    <?php if($files[4][2] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[4][2])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[4][2])){ echo $files[4][2]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[4][2] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                   
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -252,14 +254,14 @@
                   <td>Daftar Hadir Tahap 1</td>
                   
                   <td>
-                    <?php if($files[4][3] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[4][3])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[4][3])){ echo $files[4][3]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[4][3] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?> 
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -270,14 +272,14 @@
                   <td>Laporan Ketidaksesuaian</td>
                   
                   <td>
-                    <?php if($files[4][4] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[4][4])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[4][4])){ echo $files[4][4]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[4][4] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                    
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -288,14 +290,14 @@
                   <td>Laporan Audit Tahap 1</td>
                   
                   <td>
-                    <?php if($files[4][5] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[4][5])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[4][5])){ echo $files[4][5]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[4][5] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                    
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -306,14 +308,14 @@
                   <td>Verifikasi Ketidaksesuaian Tahap 1</td>
                   
                   <td>
-                    <?php if($files[4][6] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[4][6])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[4][6])){ echo $files[4][6]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[4][6] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                   
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -326,14 +328,14 @@
                   <td>Notifikasi Tim Audit Tahap 2</td>
                   
                   <td>
-                    <?php if($files[5][0] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[5][0])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[5][0])){ echo $files[5][0]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[5][0] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                    
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -344,14 +346,14 @@
                   <td>Rencana Audit Tahap 2</td>
                   
                   <td>
-                    <?php if($files[5][1] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[5][1])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[5][1])){ echo $files[5][1]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[5][1] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                  
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -362,14 +364,14 @@
                   <td>Daftar Hadir Tahap 2</td>
                   
                   <td>
-                    <?php if($files[5][2] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[5][2])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[5][2])){ echo $files[5][2]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[5][2] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                 
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -380,14 +382,14 @@
                   <td>Lembar Periksa Audit Tahap 2</td>
                   
                   <td>
-                    <?php if($files[5][3] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[5][3])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[5][3])){ echo $files[5][3]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[5][3] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                  
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -398,14 +400,14 @@
                   <td>Laporan Ketidaksesuaian Tahap 2</td>
                   
                   <td>
-                    <?php if($files[5][4] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[5][4])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[5][4])){ echo $files[5][4]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[5][4] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>               
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -416,14 +418,14 @@
                   <td>Laporan Audit Tahap 2</td>
                   
                   <td>
-                    <?php if($files[5][5] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[5][5])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[5][5])){ echo $files[5][5]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[5][5] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                  
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -434,14 +436,14 @@
                   <td>Buku Harian Auditor</td>
                   
                   <td>
-                    <?php if($files[5][6] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[5][6])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[5][6])){ echo $files[5][6]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[5][6] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                     
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -452,14 +454,14 @@
                   <td>Pemantauan Lapangan Personel Sertifikasi</td>
                   
                   <td>
-                    <?php if($files[5][7] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[5][7])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[5][7])){ echo $files[5][7]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[5][7] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                   
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -470,14 +472,14 @@
                   <td>Verifikasi Ketidaksesuaian Tahap 2</td>
                   
                   <td>
-                    <?php if($files[5][8] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[5][8])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[5][8])){ echo $files[5][8]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[5][8] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                 
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -488,14 +490,14 @@
                   <td>Keterangan Bebas Konflik Kepentingan</td>
                   
                   <td>
-                    <?php if($files[5][9] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[5][9])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[5][9])){ echo $files[5][9]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[5][9] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                   
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -508,14 +510,14 @@
                   <td>Notifikasi Tim Evaluasi</td>
                   
                   <td>
-                    <?php if($files[6][0] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[6][0])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[6][0])){ echo $files[6][0]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[6][0] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                  
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -526,14 +528,14 @@
                   <td>Laporan Evaluasi</td>
                   
                   <td>
-                    <?php if($files[6][1] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[6][1])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[6][1])){ echo $files[6][1]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[6][1] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                   
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -546,14 +548,14 @@
                   <td>Memo Dinas Penerbitan Sertifikat</td>
                   
                   <td>
-                    <?php if($files[7][0] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[7][0])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[7][0])){ echo $files[7][0]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[7][0] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                 
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -564,14 +566,14 @@
                   <td>Form Verifikasi Sertifikat/Draft Sertifikat</td>
                   
                   <td>
-                    <?php if($files[7][1] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[7][1])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[7][1])){ echo $files[7][1]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[7][1] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                   
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -582,14 +584,14 @@
                   <td>Sertifikat</td>
                   
                   <td>
-                    <?php if($files[7][2] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[7][2])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[7][2])){ echo $files[7][2]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[7][2] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>           
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    
@@ -600,14 +602,14 @@
                   <td>Program Survailen</td>
                   >
                   <td>
-                    <?php if($files[7][3] == 0){ ?>
-                    <i style="color:red;">belum di unggah</i>
+                    <?php if(isset($files[7][3])){ ?>
+                      <a href="" title="" style="color:green;" >
+                        <i class="fa fa-download"></i> <?php if(isset($files[7][3])){ echo $files[7][4]; } ?>
+                      </a>                    
                     <?php }else{ ?>
-                    <!-- <input type="checkbox"> -->
-                    <a href="" title="" style="color:green;" >
-                      <i class="fa fa-download"></i> <?=$files[7][3] ?>
-                    </a>
-                    <?php } ?>                    
+                    <i style="color:red;">belum di unggah</i>
+                    <?php }
+                         ?>                    
                   </td>
                   <td>
                     <button type="submit" class="btn btn-success" title="Valid " > <i class="fa fa-check"></i></button>                    

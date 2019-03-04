@@ -156,7 +156,7 @@
                   <a class='sidebar-link' href="<?=base_url(); ?>ApplicationForm">Formulir Sertifikasi</a>
                 </li>
                 <li>
-                  <a class='sidebar-link' href="<?=base_url(); ?>ApplicationForm/list">Daftar Sertifikasi</a>
+                  <a class='sidebar-link' href="<?=base_url(); ?>ApplicationForm/lists">Daftar Sertifikasi</a>
                 </li>
               </ul>
             </li>           
@@ -261,7 +261,7 @@
                           </div>
                           <div class="peer peer-greed">
                             <span>
-                              <span class="fw-500">John Doe</span>
+                              <span class="fw-500">Administrator</span>
                               <span class="c-grey-600">liked your <span class="text-dark">post</span>
                               </span>
                             </span>

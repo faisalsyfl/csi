@@ -3,16 +3,15 @@
 <div class="row">
   <div class="col-md-10">
     <h3 class="c-grey-900 offset-md-1">Formulir Aplikasi Sertifikasi</h3>
-<h6 class="mT-10 mB-30 offset-md-1"><?php echo "CERT-M000".$form[0]['id_form']."/".$form[0]['sertifikasi_manajemen_diminati']."/".$form[0]['nama_organisasi']; ?></h6>
-
+    <h6 class="mT-10 mB-30 offset-md-1"><?php echo "CERT-M000".$form[0]['id_form']."/".$form[0]['sertifikasi_manajemen_diminati']."/".$form[0]['nama_organisasi']; ?></h6>
   </div>
 
-  <div class="col-md-1">
+  <div class="col-md-1 text-right">
     <a href="<?php echo base_url(). 'ApplicationForm/list'?>" >
-                      <button type="button" class="btn cur-p btn-primary" title="Hapus">
-                        Kembali
-                      </button>
-                    </a>
+      <button type="button" class="btn cur-p btn-primary" title="Hapus">
+      Kembali
+      </button>
+    </a>
   </div>
 </div>
 <!-- <?php echo '<pre>' ?>
@@ -131,11 +130,11 @@
 
                <hr class="mT-30">
                <label class="mt-10" style="font-size: 16px">Alamat Kantor Pusat dan Lokasi Kegiatan <br></label>
-               <label style="font-size: 14px">
+               <p style="font-size: 14px">
                   1) <b>Lokasi kegiatan utama</b> adalah lokasi pusat kegiatan Organisasi. Lokasi kegiatan utama bisa sama atau berbeda dengan lokasi kantor pusat Organisasi. <br><br>
                   2) <b>Lokasi kegiatan lain</b> adalah lokasi kegiatan selain lokasi utama yang terpisah secara geografis. Contohnya kantor cabang, pabrik perakitan yang terpisah dari pabrik utama, wilayah kerja terpisah dari kantor utama, dan lain-lain. <br><br>
                   3) <b>Lokasi non permanen</b> adalah lokasi kegiatan bersifat sementara yang pada masa mendatang tidak akan menjadi lokasi kegiatan Organisasi lagi. Contohnya lokasi proyek konstruksi dan lain-lain.
-               </label>
+               </p>
                
                <label class="mT-20">Alamat Kantor Pusat</label>
                <input class="form-control" type="text" name="input_alamat_kantor_pusat" value="<?=$form[0]['alamat_kantor_pusat']?>" disabled>
@@ -359,8 +358,8 @@
       </div> -->
 
 
-      <div class="masonry-item col-md-2 offset-md-5">
-         <div class="bgc-white p-20 bd">
+      <div class="masonry-item col-md-10 offset-md-1">
+         <div class="bgc-white p-20 bd text-center">
             <div class="mT-30">
                <div class="form-group">
                   <a href="<?php echo base_url(). 'ApplicationForm/list'?>" >

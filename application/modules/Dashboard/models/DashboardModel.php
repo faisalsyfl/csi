@@ -60,7 +60,7 @@
         public function getDataJoin(){
             $this->db->select('*');
             $this->db->from($this->_table_name);
-            $this->db->join('status', 'form.id_form = status.formId');
+            $this->db->join('files', 'form.id_form = files.formId');
             $query = $this->db->get()->result();
             return $query;
         }

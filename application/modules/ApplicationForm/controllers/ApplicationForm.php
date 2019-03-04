@@ -6,7 +6,7 @@ class ApplicationForm extends MY_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('ApplicationFormModel');
-		$this->load->model('Status/StatusModel');
+		// $this->load->model('Status/StatusModel');
 		$this->load->model('Organization/OrganizationModel');
 	}
 
@@ -157,10 +157,10 @@ class ApplicationForm extends MY_Controller {
 
 		// }else{
 		// 	$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert">'.validation_errors().'</div>');
-			redirect('ApplicationForm/list');
+			redirect('ApplicationForm/lists');
 		// }
 	}
-	public function list(){
+	public function lists(){
 		$data['form'] = $this->ApplicationFormModel->getData();
 		$this->template->set('controller', $this);
 		$this->template->load_partial('templates/template', 'all', $data);		
